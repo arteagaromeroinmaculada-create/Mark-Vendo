@@ -149,7 +149,12 @@ async function sendLead(data: Record<string, string>, formId: string) {
   } else if (endpoint) {
     const extra = endpoint.includes('formsubmit.co') ? { _subject: `Nuevo contacto Mark Vendo: ${data.nombre || ''} (${data.segmento || 'sin tipo'})`, _template: 'table', _captcha: 'false' } : {};
     const res = await fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify({ ...payload, ...extra }) });
-    if (!res.ok) throw new Error(String(res.status));
+    let info: { success?: string | boolean; message?: string } = {};
+    try { info = await res.clone().json(); } catch { /* respuesta sin JSON */ }
+    if (info.message) console.info('[Mark Vendo] Respuesta del formulario:', res.status, info.message);
+    // FormSubmit pide activar el formulario la primera vez: el visitante no tiene la culpa, seguimos.
+    const needsActivation = /activat/i.test(info.message || '');
+    if (!needsActivation && (!res.ok || info.success === 'false' || info.success === false)) throw new Error(info.message || String(res.status));
   } else {
     console.info('[Mark Vendo] Modo demo, contacto no enviado:', payload);
   }
@@ -280,7 +285,8 @@ if (cform) {
         await sendLead(data, 'chat');
       } catch {
         track('form_error', { form_id: 'chat', reason: 'network' });
-        await markSays('Vaya, no he podido enviarlo. ¿Lo intentamos otra vez? Si sigue fallando, escríbeme por email.', i);
+        const wa = document.querySelector<HTMLAnchorElement>('a[href^="https://wa.me/"]')?.href;
+        await markSays(`Vaya, no he podido enviarlo. ¿Lo intentamos otra vez? Si sigue fallando, ${wa ? `<a href="${wa}" target="_blank" rel="noopener">escríbeme por WhatsApp</a> o ` : ''}mándame un email a <a href="mailto:${document.querySelector('[data-cform]')?.getAttribute('data-email') || ''}">${document.querySelector('[data-cform]')?.getAttribute('data-email') || ''}</a>.`, i);
         step = STEPS.length - 1;
         setupInput();
       }

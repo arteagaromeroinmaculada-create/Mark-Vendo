@@ -15,7 +15,7 @@ const wa = waLink();
   </Msg>
   {wa && <div class="qr"><a href={wa} target="_blank" rel="noopener" data-track="whatsapp_click" data-loc="contacto"><Icon name="wa" /> Prefiero escribirte por WhatsApp</a></div>}
 
-  <div class="cform no-js-hide" data-cform data-preset={preset} data-endpoint={SITE.leadEndpoint}>
+  <div class="cform no-js-hide" data-cform data-preset={preset} data-endpoint={SITE.leadEndpoint} data-email={SITE.email}>
     <div class="cform__log" data-log aria-live="polite">
       <div class="msg msg--mark msg--tail">Para empezar, ¿cómo te llamas? 😊<span class="meta">ahora</span></div>
     </div>
