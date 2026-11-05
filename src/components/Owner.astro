@@ -1,0 +1,5 @@
+---
+import { SITE } from '../config/site';
+const o = SITE.owner;
+---
+<b>{o.name}</b>, con NIF {o.nif ? o.nif : <span class="todo">[NIF]</span>} y domicilio en {o.address ? o.address : <span class="todo">[dirección postal]</span>}

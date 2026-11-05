@@ -35,12 +35,17 @@ export const SITE = {
   /** Google Tag Manager (GTM-XXXXXXX). Solo se carga si el visitante acepta las cookies de analítica. */
   gtmId: env.PUBLIC_GTM_ID || '',
 
-  /** Datos del titular para los textos legales. COMPLETAR antes de publicar. */
+  /**
+   * Datos del titular. Solo se muestran en las páginas legales (que no se indexan en buscadores).
+   * El NIF y la dirección pueden ir como variables de entorno en Vercel para no dejarlos en el repositorio.
+   */
   owner: {
-    name: env.PUBLIC_OWNER_NAME || '[Razón social del titular]',
-    nif: env.PUBLIC_OWNER_NIF || '[NIF/CIF]',
-    address: env.PUBLIC_OWNER_ADDRESS || '[Dirección postal]',
+    name: env.PUBLIC_OWNER_NAME || 'Inmaculada Arteaga Romero',
+    nif: env.PUBLIC_OWNER_NIF || '51118341J',
+    address: env.PUBLIC_OWNER_ADDRESS || 'Calle Colón 1, 28004 Madrid',
   },
+  /** Fecha de la última revisión de los textos legales. */
+  legalUpdated: '5 de noviembre de 2026',
 };
 
 export const waLink = (text = SITE.whatsappText) =>

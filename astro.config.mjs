@@ -8,7 +8,7 @@ export default defineConfig({
   build: { format: 'directory', inlineStylesheets: 'auto' },
   integrations: [
     sitemap({
-      filter: (page) => !page.includes('/gracias/'),
+      filter: (page) => !/\/(gracias|aviso-legal|privacidad|cookies)\//.test(page),
       i18n: { defaultLocale: 'es', locales: { es: 'es-ES' } },
     }),
   ],

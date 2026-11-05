@@ -1,12 +1,15 @@
 ---
 import Base from '../layouts/Base.astro';
+import { SITE } from '../config/site';
 interface Props { title: string; description: string }
 const { title, description } = Astro.props;
+const missing = !SITE.owner.nif || !SITE.owner.address;
 ---
-<Base title={`${title} · Mark Vendo`} description={description} current="none" status="documento">
-  <p class="sys">Plantilla pendiente de revisión: los datos en amarillo deben completarse y revisarlo un profesional antes de publicar.</p>
+<Base title={`${title} · Mark Vendo`} description={description} current="none" status="documento" noindex>
+  {missing && <p class="sys">Faltan datos del titular (marcados en amarillo).</p>}
   <article class="msg msg--mark msg--tail msg--wide doc">
     <h1>{title}</h1>
     <slot />
+    <p class="legal-mini">Última actualización: {SITE.legalUpdated}.</p>
   </article>
 </Base>

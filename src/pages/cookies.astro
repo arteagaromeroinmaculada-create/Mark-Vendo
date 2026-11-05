@@ -1,14 +1,21 @@
 ---
 import Legal from '../components/Legal.astro';
+import { SITE } from '../config/site';
+const analytics = !!SITE.gtmId;
 ---
 <Legal title="Política de cookies" description="Qué cookies usa la web de Mark Vendo y cómo gestionarlas.">
-  <h2>Qué son las cookies</h2>
-  <p>Pequeños archivos que una web guarda en tu navegador para recordar información sobre tu visita.</p>
-  <h2>Qué cookies usamos</h2>
+  <h2>1. Qué son</h2>
+  <p>Las cookies y tecnologías parecidas (como el almacenamiento local del navegador) son pequeños archivos o datos que una web guarda en tu dispositivo para recordar información sobre tu visita.</p>
+
+  <h2>2. Cuáles usamos</h2>
   <ul>
-    <li><strong>Técnicas (necesarias):</strong> guardamos en tu navegador tu elección sobre las cookies y, durante la sesión, la página por la que llegaste. No requieren consentimiento.</li>
-    <li><strong>Analítica (opcionales):</strong> si las aceptas, cargamos Google Tag Manager y las herramientas de medición configuradas en él <span class="todo">[p. ej. Google Analytics 4, Meta Pixel]</span> para saber cuántas personas visitan la web y qué partes funcionan mejor.</li>
+    <li><b>Técnicas (necesarias):</b> guardamos en tu navegador tu elección sobre las cookies (<code>mv_consent</code>, hasta que la borres) y, solo durante la visita, la página por la que llegaste y lo que vas contestando en el formulario. No requieren consentimiento y no salen de tu navegador hasta que envías el formulario.</li>
+    {analytics
+      ? <li><b>Analítica (opcionales):</b> si las aceptas, cargamos Google Tag Manager y las herramientas de medición configuradas en él para saber cuántas personas visitan la web y qué partes funcionan mejor. Proveedor: Google Ireland Ltd. Si las rechazas, no se cargan.</li>
+      : <li><b>Analítica:</b> ahora mismo no usamos cookies de analítica ni de publicidad. Si en el futuro las activamos, solo se cargarán si las aceptas en el aviso de cookies y lo explicaremos aquí.</li>}
   </ul>
-  <h2>Cómo gestionarlas</h2>
-  <p>Puedes aceptar o rechazar las cookies de analítica en el aviso que aparece al entrar y cambiar de opinión desde «Configurar cookies», en el pie de la página. También puedes borrarlas desde la configuración de tu navegador.</p>
+  <p>Al pulsar un botón de WhatsApp sales de esta web: WhatsApp aplica entonces su propia política de cookies.</p>
+
+  <h2>3. Cómo gestionarlas</h2>
+  <p>Puedes aceptar o rechazar las cookies opcionales en el aviso que aparece al entrar y cambiar de opinión desde «Configurar cookies», en el pie de la página. También puedes borrarlas desde la configuración de tu navegador.</p>
 </Legal>

@@ -1,19 +1,31 @@
 ---
 import Legal from '../components/Legal.astro';
+import Owner from '../components/Owner.astro';
 import { SITE } from '../config/site';
-const o = SITE.owner;
 ---
 <Legal title="Aviso legal" description="Información legal sobre el titular de la web de Mark Vendo.">
-  <h2>Titular de la web</h2>
-  <p>En cumplimiento de la Ley 34/2002, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), se informa de que esta web ({SITE.url}) pertenece a <span class="todo">{o.name}</span>, con NIF <span class="todo">{o.nif}</span> y domicilio en <span class="todo">{o.address}</span>. Email de contacto: <a href={`mailto:${SITE.email}`}>{SITE.email}</a>. <span class="todo">[Datos registrales, si aplica]</span>.</p>
-  <h2>Objeto</h2>
-  <p>Esta web presenta Mark Vendo, un servicio de marketing con inteligencia artificial en fase de acceso anticipado, y permite contactar con su equipo.</p>
-  <h2>Contenidos y ejemplos</h2>
-  <p>Las conversaciones y piezas que se muestran en esta web son ejemplos demostrativos creados para explicar el servicio. No corresponden a clientes reales ni representan resultados obtenidos. Las funcionalidades se identifican según su estado: disponibles en el piloto, en desarrollo o previstas para más adelante.</p>
-  <h2>Propiedad intelectual</h2>
-  <p>Los textos, el diseño, el logotipo y el resto de elementos de esta web pertenecen a su titular o se usan con licencia. WhatsApp, Instagram, TikTok y Facebook son marcas de sus respectivos propietarios; se mencionan solo para describir los canales con los que trabaja el servicio.</p>
-  <h2>Responsabilidad</h2>
-  <p>El titular no se hace responsable del uso que se haga de la información de esta web ni de los contenidos de webs de terceros enlazadas desde ella.</p>
-  <h2>Legislación aplicable</h2>
-  <p>Esta web se rige por la legislación española.</p>
+  <h2>1. Titular de la web</h2>
+  <p>En cumplimiento del artículo 10 de la Ley 34/2002, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), te informamos de que esta web ({SITE.url.replace('https://', '')}) es titularidad de <Owner />. Puedes contactar con nosotros en <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.</p>
+  <p>Mark Vendo es el nombre comercial del servicio.</p>
+
+  <h2>2. Objeto</h2>
+  <p>Esta web presenta Mark Vendo, un asistente de marketing con inteligencia artificial que trabaja por WhatsApp, en fase de acceso anticipado, y permite contactar con nosotros. Navegar por la web es gratuito y no exige registro.</p>
+
+  <h2>3. Condiciones de uso</h2>
+  <p>Al usar esta web te comprometes a hacerlo de forma lícita y a no enviar a través de ella información falsa, ofensiva o de terceros sin su permiso. Podemos modificar los contenidos y estas condiciones en cualquier momento; la versión vigente es la publicada en esta página.</p>
+
+  <h2>4. Contenidos y ejemplos</h2>
+  <p>Las conversaciones, carteles, vídeos y demás piezas que se muestran en la web son ejemplos creados para explicar el servicio. No corresponden a clientes reales ni representan resultados obtenidos. Las funcionalidades se identifican según su estado: disponibles en el piloto, en desarrollo o previstas para más adelante. La información de la web no constituye una oferta vinculante: las condiciones del servicio se acuerdan con cada cliente antes de empezar.</p>
+
+  <h2>5. Propiedad intelectual e industrial</h2>
+  <p>Los textos, el diseño, el logotipo, el nombre Mark Vendo y el resto de elementos de la web pertenecen a su titular o se usan con licencia. No está permitido reproducirlos o distribuirlos con fines comerciales sin autorización. WhatsApp, Instagram, TikTok y Facebook son marcas de sus respectivos propietarios; se mencionan solo para describir los canales con los que trabaja el servicio, y Mark Vendo no está afiliado a ellas.</p>
+
+  <h2>6. Responsabilidad</h2>
+  <p>Procuramos que la información de la web sea correcta y esté actualizada, pero no garantizamos la ausencia de errores ni la disponibilidad continua de la web. No respondemos del uso que se haga de la información ni de los contenidos de webs de terceros enlazadas desde aquí.</p>
+
+  <h2>7. Datos personales y cookies</h2>
+  <p>El tratamiento de tus datos se explica en la <a href="/privacidad/">política de privacidad</a> y el uso de cookies, en la <a href="/cookies/">política de cookies</a>.</p>
+
+  <h2>8. Legislación y jurisdicción</h2>
+  <p>Esta web se rige por la legislación española. Para cualquier controversia, las partes se someten a los juzgados y tribunales que correspondan conforme a la ley; si actúas como consumidor, los de tu domicilio.</p>
 </Legal>
