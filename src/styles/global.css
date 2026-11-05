@@ -450,3 +450,19 @@ em.s { font-family: var(--f-serif); font-style: italic; font-weight: 400; letter
 .totop-wrap { margin-top: 64px; }
 @media (max-width: 900px) { .blk { padding-top: 64px; } }
 .steps b { color: var(--text); margin-bottom: 2px; }
+
+/* Entrada: sin hueco arriba, los botones del hero se ven sin hacer scroll */
+.thread { padding-top: 6px; }
+.day--first { margin: 6px 0 2px; }
+.blk--hero { padding-top: 0; }
+.blk--hero > .msg--tail:first-child { margin-top: 4px; }
+@media (max-width: 900px) { .blk--hero { padding-top: 0; } }
+@media (max-width: 420px) {
+  .blk--hero .msg .big { font-size: 30px; margin: 4px 0 8px; }
+  .blk--hero .lead { font-size: 16px; }
+  .day--first { display: none; }
+}
+@media (max-width: 420px) and (max-height: 700px) {
+  .blk--hero .lead { font-size: 15px; line-height: 1.4; }
+  .blk--hero .kicker { display: none; }
+}

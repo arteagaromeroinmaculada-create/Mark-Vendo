@@ -42,10 +42,9 @@ const schema = [
 ];
 ---
 <Base title="Mark Vendo · Marketing por WhatsApp para teatro, monólogos y artistas en escena" description="Para monologuistas, compañías de teatro, artistas y showpeople. Mándale a Mark tus vídeos, fotos y carteles por WhatsApp y los convierte en reels y publicaciones para llenar tus funciones." schema={schema}>
-  <p class="day">Hoy</p>
-  <p class="sys"><Icon name="lock" />Las conversaciones de esta web son ejemplos para enseñarte cómo trabaja Mark. No son clientes reales.</p>
+  <p class="day day--first">Hoy</p>
 
-  <section class="blk" aria-labelledby="hero-h">
+  <section class="blk blk--hero" aria-labelledby="hero-h">
     <Msg from="you" tail time="10:00">Hola 👋 ¿Quién eres?</Msg>
     <Msg tail wide>
       <span class="kicker">¡Hola! Soy Mark, el marketing de la gente de escenario</span>
@@ -57,6 +56,7 @@ const schema = [
       <a class="primary" href="#contacto" data-track="cta_click" data-loc="hero">Quiero conocer a Mark</a>
       <a href="#como-funciona" data-track="cta_click" data-loc="hero-secundario">¿Cómo funciona?</a>
     </div>
+    <p class="sys"><Icon name="lock" />Las conversaciones de esta web son ejemplos para enseñarte cómo trabaja Mark. No son clientes reales.</p>
     <Msg wide fwd="Reenviado" time="10:01">
       Mira cómo trabajo con una sala. Así de fácil 👇
       <Demo messages={demo} />
