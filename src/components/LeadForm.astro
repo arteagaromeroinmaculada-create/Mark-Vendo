@@ -1,0 +1,30 @@
+---
+import { SITE } from '../config/site';
+interface Props { preset?: string; id?: string }
+const { preset = '', id = 'formulario' } = Astro.props;
+const TYPES = [
+  { v: 'sala', l: 'Sala o teatro' }, { v: 'productora', l: 'Productora' }, { v: 'promotor', l: 'Promotor' },
+  { v: 'artista', l: 'Artista' }, { v: 'monologuista', l: 'Monologuista' }, { v: 'otro', l: 'Otro' },
+];
+---
+<form class="form" id={id} data-lead-form data-endpoint={SITE.leadEndpoint} novalidate action={SITE.leadEndpoint && SITE.leadEndpoint !== 'netlify' ? SITE.leadEndpoint : '/gracias/'} method="post">
+  <div class="f"><label for={`${id}-nombre`}>Nombre</label><input id={`${id}-nombre`} name="nombre" type="text" autocomplete="name" required maxlength="120" /><span class="f__err" aria-live="polite"></span></div>
+  <div class="f"><label for={`${id}-email`}>Email</label><input id={`${id}-email`} name="email" type="email" autocomplete="email" inputmode="email" required maxlength="160" /><span class="f__err" aria-live="polite"></span></div>
+  <div class="f f--full"><label for={`${id}-empresa`}>Empresa, sala o nombre artístico</label><input id={`${id}-empresa`} name="empresa" type="text" autocomplete="organization" required maxlength="160" /><span class="f__err" aria-live="polite"></span></div>
+  <fieldset class="f f--full"><legend>¿Qué eres?</legend>
+    <div class="chips">{TYPES.map((t) => (<label class="chip"><input type="radio" name="segmento" value={t.v} checked={preset === t.v} required /><span>{t.l}</span></label>))}</div>
+    <span class="f__err" aria-live="polite"></span>
+  </fieldset>
+  <div class="f"><label for={`${id}-web`}>Web o Instagram</label><input id={`${id}-web`} name="web" type="text" inputmode="url" placeholder="@tusala o tusala.com" maxlength="200" required /><span class="f__err" aria-live="polite"></span></div>
+  <div class="f"><label for={`${id}-eventos`}>Eventos al mes, aprox.</label>
+    <select id={`${id}-eventos`} name="eventos_mes" required><option value="">Elige una opción</option><option value="1-2">1 o 2</option><option value="3-5">De 3 a 5</option><option value="6-10">De 6 a 10</option><option value="10+">Más de 10</option><option value="ninguno-ahora">Ahora mismo ninguno</option></select>
+    <span class="f__err" aria-live="polite"></span></div>
+  <div class="f f--full"><label for={`${id}-tel`}>Móvil para hablar por WhatsApp <span class="opt">(opcional)</span></label><input id={`${id}-tel`} name="telefono" type="tel" inputmode="tel" autocomplete="tel" placeholder="+34 600 000 000" maxlength="30" /></div>
+  <div class="f f--full"><label for={`${id}-msg`}>Cuéntame qué haces <span class="opt">(opcional)</span></label><textarea id={`${id}-msg`} name="mensaje" maxlength="2000"></textarea></div>
+  <div class="hp" aria-hidden="true"><label>No rellenar <input type="text" name="website_url" tabindex="-1" autocomplete="off" /></label></div>
+  <div class="f f--full"><label class="check"><input type="checkbox" name="privacidad" value="si" required /><span>He leído y acepto la <a href="/privacidad/" target="_blank" rel="noopener">política de privacidad</a>.</span></label><span class="f__err" aria-live="polite"></span></div>
+  <div class="f f--full">
+    <button class="btn form__submit" type="submit">Quiero conocer a Mark</button>
+    <p class="form__status" role="status" aria-live="polite"></p>
+  </div>
+</form>

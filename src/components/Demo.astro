@@ -1,0 +1,44 @@
+---
+import Icon from './Icon.astro';
+import type { ChatMsg } from '../content/segments';
+interface Props { messages: ChatMsg[]; who?: string; sub?: string }
+const { messages, who = 'Sala Ejemplo', sub = 'conversación de ejemplo' } = Astro.props;
+const times = ['10:02', '10:02', '10:03', '10:03', '10:03', '10:05', '10:06', '10:06', '12:40', '12:41', '12:42'];
+const strip = (s: string) => s.replace(/<[^>]+>/g, ' ');
+const label = (m: any) => ({ video: 'vídeo', photos: 'fotos', poster: 'cartel', preview: 'vista previa del reel', doc: 'documento' } as any)[m.media];
+---
+<div class="demo" data-animate>
+  <div class="demo__bar" aria-hidden="true">
+    <span class="av av--sm av--c"><Icon name="stage" /></span>
+    <span><b>{who} y Mark</b><small>{sub}</small></span>
+    <span class="demo__tag">Ejemplo</span>
+  </div>
+  <div class="demo__body" aria-hidden="true">
+    {messages.map((m, i) => {
+      const from = m.from === 'client' ? 'you' : 'mark';
+      const prev = messages[i - 1];
+      const tail = !prev || prev.from !== m.from;
+      return (
+        <div class:list={['msg', `msg--${from}`, { 'msg--tail': tail }]} data-step>
+          {'text' in m ? <Fragment set:html={m.text} /> : (
+            <>
+              {m.media === 'video' && <div class="vid"><span>{m.label ?? 'Vídeo'}</span></div>}
+              {m.media === 'photos' && <div class="photos"><span></span><span></span><span></span><span></span></div>}
+              {m.media === 'poster' && <div class="poster"><small>VIERNES 14 · 20:30</small><b>Risas a medianoche</b><small>Entradas a la venta</small></div>}
+              {m.media === 'doc' && <div class="att"><span class="att__ic">PDF</span><span><b>{m.label}</b><small>2 páginas</small></span></div>}
+              {m.media === 'preview' && <div class="reel"><i>Reel · vista previa</i><b>Este viernes, risas a medianoche</b><small>Vie 14 · 20:30 · Entradas en el enlace</small></div>}
+              {m.caption && <Fragment set:html={m.caption} />}
+            </>
+          )}
+          <span class="meta">{times[i % times.length]}{from === 'you' && <Icon name="ticks" />}</span>
+        </div>
+      );
+    })}
+    <div class="typing" data-typing><span></span><span></span><span></span></div>
+  </div>
+  <div class="sr-only">
+    <p>Conversación de ejemplo entre {who} y Mark:</p>
+    <ol>{messages.map((m) => <li>{m.from === 'client' ? who : 'Mark'}: {'text' in m ? strip(m.text) : `[${label(m)}] ${m.caption ? strip(m.caption) : ''}`}</li>)}</ol>
+  </div>
+</div>
+<button class="demo__replay" type="button" data-replay>↻ Ver la conversación otra vez</button>

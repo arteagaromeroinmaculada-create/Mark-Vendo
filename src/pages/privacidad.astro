@@ -1,0 +1,25 @@
+---
+import Legal from '../components/Legal.astro';
+import { SITE } from '../config/site';
+const o = SITE.owner;
+---
+<Legal title="Política de privacidad" description="Cómo trata Mark Vendo los datos personales que recibe a través de su web.">
+  <h2>Responsable del tratamiento</h2>
+  <p><span class="todo">{o.name}</span>, con NIF <span class="todo">{o.nif}</span> y domicilio en <span class="todo">{o.address}</span>. Contacto: <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.</p>
+  <h2>Qué datos tratamos</h2>
+  <p>Los que nos facilitas en el formulario de contacto: nombre, email, nombre de tu empresa, sala o nombre artístico, tipo de cliente, web o perfil de Instagram, número aproximado de eventos al mes, teléfono (opcional) y el mensaje que quieras añadir. También registramos la página desde la que nos escribes y, si existen, los parámetros de campaña (UTM) del enlace por el que llegaste.</p>
+  <h2>Para qué los usamos</h2>
+  <ul>
+    <li>Responder a tu solicitud y explicarte cómo funciona Mark.</li>
+    <li>Valorar tu participación en el programa de acceso anticipado.</li>
+    <li>Saber qué tipo de clientes se interesan por Mark y qué canales funcionan mejor.</li>
+  </ul>
+  <h2>Base legal</h2>
+  <p>Tu consentimiento, que nos das al marcar la casilla del formulario. Puedes retirarlo cuando quieras.</p>
+  <h2>Cuánto tiempo los conservamos</h2>
+  <p>Mientras mantengamos la conversación contigo y, como máximo, <span class="todo">[plazo, p. ej. 24 meses]</span> desde el último contacto, salvo obligación legal.</p>
+  <h2>Con quién los compartimos</h2>
+  <p>No cedemos tus datos a terceros. Los almacenan proveedores que nos prestan servicios (alojamiento web, CRM y herramientas de comunicación) como encargados del tratamiento: Vercel (alojamiento web) y FormSubmit (envío del formulario de contacto por email), además de Google (correo electrónico) y WhatsApp cuando nos escribes por ahí. Algunos de estos proveedores pueden tratar datos fuera del Espacio Económico Europeo con las garantías previstas en el RGPD (cláusulas contractuales tipo o Marco de Privacidad de Datos UE-EE. UU.).</p>
+  <h2>Tus derechos</h2>
+  <p>Puedes ejercer tus derechos de acceso, rectificación, supresión, oposición, limitación y portabilidad escribiendo a <a href={`mailto:${SITE.email}`}>{SITE.email}</a>. Si crees que no hemos tratado bien tus datos, puedes reclamar ante la Agencia Española de Protección de Datos (aepd.es).</p>
+</Legal>

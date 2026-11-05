@@ -1,0 +1,29 @@
+---
+import Msg from './Msg.astro';
+---
+<section class="blk" id="ejemplos" aria-labelledby="ej-h">
+  <Msg from="you" tail time="10:08">¿Y qué puedes hacer con lo que ya tengo en el móvil?</Msg>
+  <Msg tail wide>
+    <h2 class="h" id="ej-h">Lo que ya tienes en el móvil da para <em class="s hl">mucho</em>.</h2>
+    <p>Tres ejemplos: tú me mandas algo y yo te devuelvo esto.</p>
+  </Msg>
+  <p class="sys">Ejemplos demostrativos: no son trabajos ni resultados de clientes reales.</p>
+
+  <Msg from="you" tail><div class="vid"><span>actuacion_completa.mp4 · 14:32</span></div>Te paso la actuación de anoche</Msg>
+  <Msg tail time="10:09">
+    <h3 class="h3">Un vídeo de una actuación, <em class="s hl">tres reels</em>.</h3>
+    <div class="out" aria-label="Tres reels: el gancho, el mejor momento y la próxima fecha"><span class="th th--v" data-l="El gancho"></span><span class="th th--v" data-l="Mejor momento"></span><span class="th th--v" data-l="Próxima fecha"></span></div>
+  </Msg>
+
+  <Msg from="you" tail><div class="att"><span class="att__ic att__ic--img">JPG</span><span><b>cartel_viernes.jpg</b><small>1 imagen</small></span></div></Msg>
+  <Msg tail time="10:09">
+    <h3 class="h3">Un cartel, <em class="s hl">varias publicaciones</em>.</h3>
+    <div class="out" aria-label="Publicación, carrusel, story y recordatorio"><span class="th th--sq">Post</span><span class="th th--sq r">Carrusel</span><span class="th th--sq k">Story</span><span class="th th--sq g">Es hoy</span></div>
+  </Msg>
+
+  <Msg from="you" tail>Nuevo show el 14, ¡hay que anunciarlo! 📣</Msg>
+  <Msg tail time="10:11">
+    <h3 class="h3">Un anuncio, <em class="s hl">una campaña entera</em>.</h3>
+    <div class="out phases" aria-label="Cinco fases"><span>Anuncio</span><span>Artista</span><span>Recordatorio</span><span>Cuenta atrás</span><span>Últimas entradas</span></div>
+  </Msg>
+</section>

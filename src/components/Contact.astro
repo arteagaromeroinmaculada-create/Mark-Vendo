@@ -1,0 +1,68 @@
+---
+import Msg from './Msg.astro';
+import Icon from './Icon.astro';
+import LeadForm from './LeadForm.astro';
+import { SITE, waLink } from '../config/site';
+interface Props { preset?: string }
+const { preset = '' } = Astro.props;
+const wa = waLink();
+---
+<section class="blk" id="contacto" aria-labelledby="contacto-h">
+  <p class="day">Hablemos</p>
+  <Msg tail wide>
+    <h2 class="h" id="contacto-h">¿Tienes un espectáculo que promocionar? <em class="s hl">Déjame el marketing a mí.</em></h2>
+    <p>Cuéntame qué haces y te enseño cómo puedo ayudarte. Son ocho preguntas cortas, aquí mismo.</p>
+  </Msg>
+  {wa && <div class="qr"><a href={wa} target="_blank" rel="noopener" data-track="whatsapp_click" data-loc="contacto"><Icon name="wa" /> Prefiero escribirte por WhatsApp</a></div>}
+
+  <div class="cform no-js-hide" data-cform data-preset={preset} data-endpoint={SITE.leadEndpoint}>
+    <div class="cform__log" data-log aria-live="polite">
+      <div class="msg msg--mark msg--tail">Para empezar, ¿cómo te llamas? 😊<span class="meta">ahora</span></div>
+    </div>
+    <div class="cform__chips" data-chips hidden></div>
+    <form class="composer" data-composer autocomplete="on">
+      <label class="composer__box">
+        <Icon name="smile" />
+        <span class="sr-only" data-q-label>Tu respuesta a Mark</span>
+        <input data-input name="respuesta" type="text" placeholder="Escribe tu nombre" autocomplete="name" maxlength="200" />
+      </label>
+      <button class="send" type="submit" aria-label="Enviar respuesta"><Icon name="send" /></button>
+    </form>
+    <button class="cform__alt" type="button" data-show-classic>Prefiero rellenar un formulario de los de siempre</button>
+  </div>
+
+  <div class="form-classic" data-classic>
+    <div class="msg msg--mark msg--tail msg--wide">
+      <h3 class="h3">Formulario de contacto</h3>
+      <LeadForm preset={preset} />
+    </div>
+  </div>
+  <p class="sys">Responsable: {SITE.owner.name}. Uso tus datos solo para responderte y contarte cómo funciona Mark, con tu consentimiento. Puedes pedir que los borre escribiendo a {SITE.email}. <a href="/privacidad/">Política de privacidad</a>.</p>
+
+  {SITE.leadEndpoint === 'netlify' && (
+    <form name="contacto" data-netlify="true" netlify-honeypot="website_url" hidden aria-hidden="true">
+      <input type="hidden" name="nombre" />
+      <input type="hidden" name="email" />
+      <input type="hidden" name="empresa" />
+      <input type="hidden" name="segmento" />
+      <input type="hidden" name="web" />
+      <input type="hidden" name="eventos_mes" />
+      <input type="hidden" name="telefono" />
+      <input type="hidden" name="mensaje" />
+      <input type="hidden" name="privacidad" />
+      <input type="hidden" name="origen_formulario" />
+      <input type="hidden" name="origen_pagina" />
+      <input type="hidden" name="origen_landing" />
+      <input type="hidden" name="referer" />
+      <input type="hidden" name="enviado_en" />
+      <input type="hidden" name="utm_source" />
+      <input type="hidden" name="utm_medium" />
+      <input type="hidden" name="utm_campaign" />
+      <input type="hidden" name="utm_term" />
+      <input type="hidden" name="utm_content" />
+      <input type="hidden" name="gclid" />
+      <input type="hidden" name="fbclid" />
+      <input type="hidden" name="website_url" />
+    </form>
+  )}
+</section>

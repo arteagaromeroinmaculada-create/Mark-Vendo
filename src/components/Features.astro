@@ -1,0 +1,19 @@
+---
+import Msg from './Msg.astro';
+import { FEATURES, FEATURES_NOTE } from '../content/features';
+const now = FEATURES.filter((f) => f.status === 'piloto');
+const later = FEATURES.filter((f) => f.status !== 'piloto');
+---
+<section class="blk" id="que-hago" aria-labelledby="que-h">
+  <Msg from="you" tail time="10:11">Vale, pero ¿qué haces exactamente?</Msg>
+  <Msg tail wide>
+    <h2 class="h" id="que-h">Todo el trabajo de marketing <em class="s hl">que no ves</em>.</h2>
+    <p class="h3">Ya en el piloto</p>
+    <ul class="lite">{now.map((f) => <li>{f.title}</li>)}</ul>
+    {later.length > 0 && <>
+      <p class="h3" style="margin-top:14px">Estoy aprendiendo</p>
+      <ul class="lite lite--later">{later.map((f) => <li>{f.title}</li>)}</ul>
+    </>}
+  </Msg>
+  <Msg time="10:12">{FEATURES_NOTE}</Msg>
+</section>

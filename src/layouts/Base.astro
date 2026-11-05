@@ -1,0 +1,162 @@
+---
+import '../styles/global.css';
+import Logo from '../components/Logo.astro';
+import Icon from '../components/Icon.astro';
+import { SITE, waLink } from '../config/site';
+import { DOODLE } from '../config/doodle';
+import { SEGMENTS } from '../content/segments';
+
+interface Props {
+  title: string;
+  description: string;
+  noindex?: boolean;
+  schema?: Record<string, unknown>[];
+  current?: string;
+  status?: string;
+  dock?: boolean;
+}
+const { title, description, noindex = false, schema = [], current = 'home', status = 'en línea · tu compañero de marketing', dock = true } = Astro.props;
+const canonical = new URL(Astro.url.pathname, SITE.url).href;
+const og = new URL('/og.png', SITE.url).href;
+const wa = waLink();
+
+const segAv = ['av--c', 'av--d', 'av--e'];
+const segIc = ['stage', 'mega', 'mic2'];
+const chats = [
+  { key: 'home', href: '/', name: 'Mark', preview: 'Tú grabas. Me lo mandas por WhatsApp…', time: 'ahora', badge: '1', av: 'M' },
+  { key: 'como', href: '/#como-funciona', name: 'Cómo funciona', preview: 'Graba. Envía. Aprueba. Yo hago el resto.', time: '10:04', icon: 'list', cls: 'av--b' },
+  ...SEGMENTS.map((s, i) => ({ key: s.slug, href: `/${s.slug}/`, name: `Mark para ${s.short.toLowerCase()}`, preview: s.quote, time: '10:06', icon: segIc[i], cls: segAv[i] })),
+  { key: 'early', href: '/#acceso-anticipado', name: 'Acceso anticipado', preview: 'Busco salas, productoras y artistas…', time: '10:12', icon: 'ticket', cls: 'av--f', badge: 'Nuevo' },
+  { key: 'faq', href: '/#preguntas', name: 'Preguntas frecuentes', preview: '¿Tengo que instalar algo? No.', time: '10:14', icon: 'q', cls: 'av--b' },
+];
+
+const orgSchema = {
+  '@context': 'https://schema.org', '@type': 'Organization', '@id': `${SITE.url}/#org`, name: SITE.name, url: SITE.url,
+  logo: `${SITE.url}/favicon.svg`, email: SITE.email, areaServed: { '@type': 'Country', name: 'España' },
+  description: 'Mark Vendo es un asistente de marketing con inteligencia artificial que trabaja por WhatsApp para salas de espectáculos, promotores de eventos y artistas.',
+};
+const siteSchema = { '@context': 'https://schema.org', '@type': 'WebSite', '@id': `${SITE.url}/#web`, name: SITE.name, url: SITE.url, inLanguage: 'es-ES', publisher: { '@id': `${SITE.url}/#org` } };
+const allSchema = [orgSchema, siteSchema, ...schema];
+---
+<!doctype html>
+<html lang="es-ES">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+  <link rel="alternate" hreflang="es-ES" href={canonical} />
+  {noindex && <meta name="robots" content="noindex, follow" />}
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="color-scheme" content="light" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content={SITE.locale} />
+  <meta property="og:site_name" content={SITE.name} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:image" content={og} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={og} />
+  <style set:html={`:root{--doodle-svg:${DOODLE}}`}></style>
+  <script is:inline>document.documentElement.classList.add('js');window.dataLayer=window.dataLayer||[];</script>
+  <script is:inline define:vars={{ gtmId: SITE.gtmId }}>window.__MV_GTM__ = gtmId;</script>
+  {allSchema.map((s) => <script type="application/ld+json" set:html={JSON.stringify(s)} />)}
+</head>
+<body>
+  <a class="skip" href="#main">Saltar a la conversación</a>
+  <div class="app">
+    <aside class="side" aria-label="Secciones">
+      <div class="side__top"><Logo /><span class="pill pill--new">Acceso anticipado</span></div>
+      <p class="side__hint">Tu compañero de marketing vive en WhatsApp.</p>
+      <ul class="chats">
+        {chats.map((c) => (
+          <li>
+            <a href={c.href} aria-current={c.key === current ? 'page' : undefined}>
+              <span class:list={['av', c.cls, { 'av--mark': c.av }]}>{c.av ? c.av : <Icon name={c.icon!} />}</span>
+              <span style="min-width:0"><span class="t">{c.name}</span><span class="p">{c.preview}</span></span>
+              <span class="h">{c.time}{c.badge && <><br /><span class="badge">{c.badge}</span></>}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+      <div class="side__foot"><a href="/aviso-legal/">Aviso legal</a> · <a href="/privacidad/">Privacidad</a> · <a href="/cookies/">Cookies</a></div>
+    </aside>
+
+    <div class="pane">
+      <header class="bar">
+        {current !== 'home' ? <a class="bar__back" href="/" aria-label="Volver al inicio"><Icon name="back" /></a> : <span class="bar__back" aria-hidden="true"><Icon name="back" /></span>}
+        <span class="av av--sm av--mark" aria-hidden="true">M</span>
+        <a class="bar__who" href="/">
+          <span class="bar__name">Mark Vendo</span>
+          <span class="bar__st" data-status>{status}</span>
+        </a>
+        <a class="btn btn--light btn--sm bar__cta" href="#contacto" data-track="cta_click" data-loc="header"><span class="full">Quiero conocer a Mark</span><span class="short">Hablemos</span></a>
+      </header>
+
+      <main id="main" class="thread">
+        <slot />
+      </main>
+
+      <p class="totop-wrap"><a class="totop" href="#main" data-track="cta_click" data-loc="ir-al-principio"><span aria-hidden="true">↑</span> Ir al principio de la conversación</a></p>
+
+      <footer class="foot">
+        <div class="foot__card">
+          <Logo />
+          <div class="foot__cols">
+            <div>
+              <h2>Mark Vendo</h2>
+              <p>Tu compañero de marketing con inteligencia artificial. Trabaja por WhatsApp para salas, promotores y artistas en España.</p>
+              <p><a href={`mailto:${SITE.email}`}>{SITE.email}</a></p>
+            </div>
+            <div>
+              <h2>Mark para</h2>
+              <ul>{SEGMENTS.map((s) => <li><a href={`/${s.slug}/`}>{s.short}</a></li>)}</ul>
+            </div>
+            <div>
+              <h2>Legal</h2>
+              <ul>
+                <li><a href="/aviso-legal/">Aviso legal</a></li>
+                <li><a href="/privacidad/">Política de privacidad</a></li>
+                <li><a href="/cookies/">Política de cookies</a></li>
+                <li><button class="linkish" type="button" data-cookie-settings>Configurar cookies</button></li>
+              </ul>
+            </div>
+          </div>
+          <small>© {new Date().getFullYear()} {SITE.name}. Producto en fase de acceso anticipado. WhatsApp es una marca de su propietario; Mark Vendo no está afiliado a WhatsApp.</small>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  {dock && (
+    <div class="dock" data-dock>
+      <div class="dock__in">
+        <a class="dock__field" href="#contacto" data-track="cta_click" data-loc="dock"><Icon name="smile" /><span>Escribe a Mark: quiero conocerte</span></a>
+        {wa
+          ? <a class="send" href={wa} target="_blank" rel="noopener" data-track="whatsapp_click" data-loc="dock" aria-label="Escribir a Mark por WhatsApp"><Icon name="wa" /></a>
+          : <a class="send" href="#contacto" data-track="cta_click" data-loc="dock-send" aria-label="Quiero conocer a Mark"><Icon name="send" /></a>}
+      </div>
+    </div>
+  )}
+
+  <div class="cookies" data-cookies hidden role="dialog" aria-label="Preferencias de cookies">
+    <p>Uso cookies de analítica para saber qué partes de la web funcionan mejor. Solo se activan si las aceptas. <a href="/cookies/">Más información</a>.</p>
+    <div>
+      <button class="btn btn--ghost" type="button" data-cookies-reject>Rechazar</button>
+      <button class="btn" type="button" data-cookies-accept>Aceptar</button>
+    </div>
+  </div>
+
+  <script>
+    import '../scripts/main.ts';
+  </script>
+</body>
+</html>

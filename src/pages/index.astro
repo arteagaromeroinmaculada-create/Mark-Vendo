@@ -1,0 +1,87 @@
+---
+import Base from '../layouts/Base.astro';
+import Msg from '../components/Msg.astro';
+import Icon from '../components/Icon.astro';
+import Demo from '../components/Demo.astro';
+import HowItWorks from '../components/HowItWorks.astro';
+import Segments from '../components/Segments.astro';
+import Examples from '../components/Examples.astro';
+import Features from '../components/Features.astro';
+import Compare from '../components/Compare.astro';
+import EarlyAccess from '../components/EarlyAccess.astro';
+import Faq from '../components/Faq.astro';
+import Contact from '../components/Contact.astro';
+import { SITE } from '../config/site';
+import { FAQ } from '../content/faq';
+import { SEGMENTS, type ChatMsg } from '../content/segments';
+
+const demo: ChatMsg[] = [
+  { from: 'client', text: 'Hola Mark, tenemos un nuevo espectáculo el próximo viernes 🎭' },
+  { from: 'mark', text: '¡Genial! Pásame el cartel, los detalles y el enlace de venta de entradas. Vamos a ponerlo en marcha.' },
+  { from: 'client', media: 'poster' },
+  { from: 'client', media: 'video', label: 'Vídeo en bruto · 0:48' },
+  { from: 'client', media: 'photos' },
+  { from: 'mark', text: 'Ya tengo el material. Confirmo tres cosas:<br>¿Viernes 14 a las 20:30?<br>¿Entradas a 18 €?<br>¿Este es el enlace de venta?' },
+  { from: 'client', text: 'Sí, todo correcto.' },
+  { from: 'mark', text: 'Perfecto. Te preparo un reel principal, dos vídeos cortos, una publicación, stories para la fecha y todos los textos.' },
+  { from: 'mark', media: 'preview', caption: 'Ya tienes la campaña. Échale un ojo 👀' },
+  { from: 'client', text: 'Me gusta. ¡Adelante! 👌' },
+  { from: 'mark', text: '¡Publicado! Ya preparo los recordatorios para que no se nos pase la fecha.' },
+];
+
+const schema = [
+  {
+    '@context': 'https://schema.org', '@type': 'Service', '@id': `${SITE.url}/#servicio`,
+    name: 'Mark Vendo: asistente de marketing con IA por WhatsApp', serviceType: 'Marketing y creación de contenido para redes sociales',
+    provider: { '@id': `${SITE.url}/#org` }, areaServed: { '@type': 'Country', name: 'España' },
+    availableChannel: { '@type': 'ServiceChannel', name: 'WhatsApp' },
+    audience: SEGMENTS.map((s) => ({ '@type': 'Audience', audienceType: s.short })),
+    description: 'El cliente envía por WhatsApp vídeos, fotos, carteles y datos de sus espectáculos. Mark prepara publicaciones, reels, textos y campañas para redes sociales y las publica tras la aprobación del cliente.',
+  },
+  { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: FAQ.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+];
+---
+<Base title="Mark Vendo · Marketing para espectáculos por WhatsApp" description="Mándale a Mark tus vídeos, fotos y carteles por WhatsApp. Los convierte en reels, publicaciones y campañas para tus redes. Para salas, promotores y artistas." schema={schema}>
+  <p class="day">Hoy</p>
+  <p class="sys"><Icon name="lock" />Las conversaciones de esta web son ejemplos para enseñarte cómo trabaja Mark. No son clientes reales.</p>
+
+  <section class="blk" aria-labelledby="hero-h">
+    <Msg from="you" tail time="10:00">Hola 👋 ¿Quién eres?</Msg>
+    <Msg tail wide>
+      <span class="kicker">¡Hola! Soy Mark</span>
+      <h1 class="big" id="hero-h">Tú grabas. Me lo mandas por <span class="hl">WhatsApp</span>. <em class="s">Yo</em> me encargo del marketing.</h1>
+      <p class="lead">Mándame tus vídeos, fotos y los detalles de cada espectáculo. Yo los convierto en contenido para tus redes.</p>
+      <span class="meta">10:01</span>
+    </Msg>
+    <div class="qr qr--row">
+      <a class="primary" href="#contacto" data-track="cta_click" data-loc="hero">Quiero conocer a Mark</a>
+      <a href="#como-funciona" data-track="cta_click" data-loc="hero-secundario">¿Cómo funciona?</a>
+    </div>
+    <Msg wide fwd="Reenviado" time="10:01">
+      Mira cómo trabajo con una sala. Así de fácil 👇
+      <Demo messages={demo} />
+    </Msg>
+  </section>
+
+  <section class="blk" id="problema" aria-labelledby="problema-h">
+    <Msg from="you" tail><h2 class="h3" id="problema-h">Es que organizar un espectáculo ya es bastante trabajo 😮‍💨</h2></Msg>
+    <Msg from="you">Tengo un evento el viernes y todavía no he publicado nada.</Msg>
+    <Msg from="you" time="10:03">Tengo vídeos y carteles, pero nunca encuentro tiempo para convertirlos en publicaciones.</Msg>
+    <Msg tail time="10:03"><p class="serif-big">Para eso <mark>estoy yo</mark>.</p></Msg>
+  </section>
+
+  <HowItWorks />
+  <Segments />
+  <Examples />
+  <Features />
+  <Compare />
+  <EarlyAccess />
+  <Faq items={FAQ} />
+
+  <section class="blk" aria-label="Resumen">
+    <Msg from="you" tail time="10:15">Vale, lo tengo claro: yo me dedico a hacer espectáculos y <b>Mark se dedica a que la gente los conozca</b> 💡</Msg>
+    <Msg tail time="10:15">¡Exacto! 🙌 ¿Empezamos?</Msg>
+  </section>
+
+  <Contact />
+</Base>

@@ -1,0 +1,28 @@
+---
+import Base from '../layouts/Base.astro';
+import Msg from '../components/Msg.astro';
+import Icon from '../components/Icon.astro';
+import { waLink } from '../config/site';
+const wa = waLink('Hola Mark, acabo de rellenar el formulario de la web 👋');
+---
+<Base title="¡Recibido! · Mark Vendo" description="Gracias por escribir a Mark Vendo." noindex dock={false} current="none">
+  <section class="blk" data-thanks aria-labelledby="gr-h">
+    <p class="day">Hoy</p>
+    <Msg from="you" tail time="ahora">Formulario enviado ✓</Msg>
+    <Msg tail wide>
+      <span class="kicker">Mensaje recibido</span>
+      <h1 class="big" id="gr-h">¡Recibido<span data-thanks-name></span>! <em class="s hl">Ya tengo tu mensaje.</em></h1>
+      <p class="lead" data-tipo="default">Te escribo pronto para conocer tus próximos espectáculos. Mientras, ve buscando ese vídeo que tienes guardado en el móvil: seguro que da para un buen reel.</p>
+      <p class="lead" data-tipo="sala" hidden>Te escribo pronto para conocer tu sala y tu programación. Mientras, piensa qué espectáculo te gustaría que promocionáramos primero.</p>
+      <p class="lead" data-tipo="productora" hidden>Te escribo pronto para conocer tus próximos eventos. Si tienes un calendario de lanzamientos, tenlo a mano: es lo primero que te pediré.</p>
+      <p class="lead" data-tipo="promotor" hidden>Te escribo pronto para conocer tus próximos eventos. Si tienes un calendario de lanzamientos, tenlo a mano: es lo primero que te pediré.</p>
+      <p class="lead" data-tipo="artista" hidden>Te escribo pronto. Mientras, busca la grabación de tu última actuación: seguro que ahí hay más de un reel.</p>
+      <p class="lead" data-tipo="monologuista" hidden>Te escribo pronto. Mientras, busca la grabación de tu último pase: un monólogo entero da para semanas de contenido.</p>
+      <span class="meta">ahora</span>
+    </Msg>
+    <div class="qr">
+      {wa && <a class="primary" href={wa} target="_blank" rel="noopener" data-track="whatsapp_click" data-loc="gracias"><Icon name="wa" /> Escríbeme ya por WhatsApp</a>}
+      <a href="/">Volver al inicio</a>
+    </div>
+  </section>
+</Base>

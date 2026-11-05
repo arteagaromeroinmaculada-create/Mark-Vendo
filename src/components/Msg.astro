@@ -1,0 +1,10 @@
+---
+import Icon from './Icon.astro';
+interface Props { from?: 'mark' | 'you'; time?: string; tail?: boolean; wide?: boolean; id?: string; class?: string; as?: string; fwd?: string }
+const { from = 'mark', time, tail = false, wide = false, id, class: cls, as: Tag = 'div', fwd } = Astro.props;
+---
+<Tag id={id} class:list={['msg', `msg--${from}`, { 'msg--tail': tail, 'msg--wide': wide }, cls]}>
+  {fwd && <span class="msg__fwd"><Icon name="fwd" />{fwd}</span>}
+  <slot />
+  {time && <span class="meta">{time}{from === 'you' && <Icon name="ticks" />}</span>}
+</Tag>

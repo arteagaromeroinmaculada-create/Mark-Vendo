@@ -1,0 +1,21 @@
+---
+import Msg from './Msg.astro';
+import { SEGMENTS } from '../content/segments';
+const asks = ['Tengo una sala o un teatro 🎭', 'Organizo eventos o soy promotor 🎪', 'Soy artista o monologuista 🎤'];
+---
+<section class="blk" id="para-quien" aria-labelledby="quien-h">
+  <Msg from="you" tail time="10:06">¿Y para quién eres?</Msg>
+  <Msg tail wide>
+    <h2 class="h" id="quien-h">Para quien hace que pasen <em class="s hl">cosas</em> encima de un escenario.</h2>
+    <p>¿Tú qué eres?</p>
+  </Msg>
+  {SEGMENTS.map((s, i) => (
+    <>
+      <Msg from="you" tail time="10:07" id={`seg-${s.formValue}`}>{asks[i]}</Msg>
+      <Msg tail>
+        <p>«{s.quote}»</p>
+        <a class="seg-link" href={`/${s.slug}/`}>Ver cómo trabajo con {s.short.toLowerCase()} →</a>
+      </Msg>
+    </>
+  ))}
+</section>

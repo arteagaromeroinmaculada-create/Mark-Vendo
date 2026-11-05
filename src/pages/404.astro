@@ -1,0 +1,11 @@
+---
+import Base from '../layouts/Base.astro';
+import Msg from '../components/Msg.astro';
+---
+<Base title="Página no encontrada · Mark Vendo" description="Esta página no existe." noindex current="none">
+  <section class="blk" aria-labelledby="nf-h">
+    <Msg from="you" tail>¿Dónde está esta página? 🤔</Msg>
+    <Msg tail wide><h1 class="h" id="nf-h">Esta función <em class="s hl">se ha cancelado</em>.</h1><p>La página que buscas no existe o ha cambiado de sitio.</p></Msg>
+    <div class="qr"><a class="primary" href="/">Volver al inicio</a></div>
+  </section>
+</Base>
