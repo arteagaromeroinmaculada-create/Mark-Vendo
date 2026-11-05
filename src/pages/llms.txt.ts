@@ -2,6 +2,7 @@ import { SITE } from '../config/site';
 import { SEGMENTS } from '../content/segments';
 import { FEATURES, STATUS_LABEL } from '../content/features';
 import { FAQ } from '../content/faq';
+import { GUIAS } from '../content/guias';
 
 export const GET = () => {
   const txt = `# Mark Vendo
@@ -21,6 +22,9 @@ ${FEATURES.map((f) => `- ${f.title}: ${STATUS_LABEL[f.status]}. ${f.text}`).join
 
 ## Para quién
 ${SEGMENTS.map((s) => `- [${s.short}](${SITE.url}/${s.slug}/): ${s.seo.description}`).join('\n')}
+
+## Guías (preguntas y respuestas)
+${GUIAS.map((g) => `- [${g.title}](${SITE.url}/guias/${g.slug}/): ${g.description}`).join('\n')}
 
 ## Preguntas frecuentes
 ${FAQ.map((f) => `### ${f.q}\n${f.a}`).join('\n\n')}

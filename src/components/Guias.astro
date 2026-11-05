@@ -1,0 +1,13 @@
+---
+import Msg from './Msg.astro';
+import { GUIAS } from '../content/guias';
+---
+<section class="blk" id="guias" aria-labelledby="guias-home-h">
+  <Msg from="you" tail time="10:14">¿Tienes algo para leer con calma?</Msg>
+  <Msg tail wide>
+    <h2 class="h3" id="guias-home-h">Guías en preguntas y respuestas</h2>
+    <ul class="guias">{GUIAS.map((g) => <li><a class="seg-link" href={`/guias/${g.slug}/`}>{g.title} →</a></li>)}</ul>
+    <a class="seg-link" href="/guias/">Ver todas las guías</a>
+    <span class="meta">10:14</span>
+  </Msg>
+</section>

@@ -10,6 +10,7 @@ import Features from '../components/Features.astro';
 import Compare from '../components/Compare.astro';
 import EarlyAccess from '../components/EarlyAccess.astro';
 import Faq from '../components/Faq.astro';
+import Guias from '../components/Guias.astro';
 import Contact from '../components/Contact.astro';
 import { SITE } from '../config/site';
 import { FAQ } from '../content/faq';
@@ -77,6 +78,7 @@ const schema = [
   <Compare />
   <EarlyAccess />
   <Faq items={FAQ} />
+  <Guias />
 
   <section class="blk" aria-label="Resumen">
     <Msg from="you" tail time="10:15">Vale, lo tengo claro: yo me dedico a hacer espectáculos y <b>Mark se dedica a que la gente los conozca</b> 💡</Msg>
