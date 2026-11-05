@@ -1,0 +1,39 @@
+---
+import Base from '../../layouts/Base.astro';
+import Msg from '../../components/Msg.astro';
+import Contact from '../../components/Contact.astro';
+import { SITE } from '../../config/site';
+import { GUIAS } from '../../content/guias';
+const url = `${SITE.url}/guias/`;
+const schema = [
+  {
+    '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Guías de marketing para gente de escenario', url, inLanguage: 'es-ES',
+    hasPart: GUIAS.map((g) => ({ '@type': 'Article', headline: g.title, url: `${SITE.url}/guias/${g.slug}/` })),
+  },
+  {
+    '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Inicio', item: `${SITE.url}/` },
+      { '@type': 'ListItem', position: 2, name: 'Guías', item: url },
+    ],
+  },
+];
+---
+<Base title="Guías de marketing para teatro, monólogos y artistas | Mark Vendo" description="Preguntas y respuestas sobre cómo promocionar obras de teatro, monólogos, actuaciones y salas en redes sociales, y cómo funciona Mark Vendo." schema={schema} current="guias" status="en línea · guías de marketing para gente de escenario">
+  <p class="day">Guías</p>
+  <section class="blk" aria-labelledby="guias-h">
+    <Msg from="you" tail>Mark, ¿tienes algo para leer con calma?</Msg>
+    <Msg tail wide>
+      <span class="kicker">Preguntas y respuestas</span>
+      <h1 class="h" id="guias-h">Guías de marketing para gente de escenario</h1>
+      <p class="lead">Las preguntas que más me hacen, contestadas una a una.</p>
+    </Msg>
+    {GUIAS.map((g) => (
+      <Msg tail wide>
+        <h2 class="h3"><a href={`/guias/${g.slug}/`}>{g.title}</a></h2>
+        <p>{g.description}</p>
+        <a class="seg-link" href={`/guias/${g.slug}/`}>Leer la guía →</a>
+      </Msg>
+    ))}
+  </section>
+  <Contact />
+</Base>

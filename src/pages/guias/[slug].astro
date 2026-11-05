@@ -1,0 +1,62 @@
+---
+import Base from '../../layouts/Base.astro';
+import Msg from '../../components/Msg.astro';
+import Icon from '../../components/Icon.astro';
+import Contact from '../../components/Contact.astro';
+import { SITE } from '../../config/site';
+import { GUIAS, type Guia } from '../../content/guias';
+
+export function getStaticPaths() {
+  return GUIAS.map((g) => ({ params: { slug: g.slug }, props: { g } }));
+}
+const { g } = Astro.props as { g: Guia };
+const url = `${SITE.url}/guias/${g.slug}/`;
+const others = GUIAS.filter((o) => o.slug !== g.slug);
+const schema = [
+  {
+    '@context': 'https://schema.org', '@type': 'FAQPage', '@id': `${url}#faq`, url, name: g.title, inLanguage: 'es-ES',
+    mainEntity: g.qa.map((x) => ({ '@type': 'Question', name: x.q, acceptedAnswer: { '@type': 'Answer', text: x.a.join(' ') } })),
+  },
+  {
+    '@context': 'https://schema.org', '@type': 'Article', headline: g.title, description: g.description, url, inLanguage: 'es-ES',
+    datePublished: g.updated, dateModified: g.updated, mainEntityOfPage: url,
+    author: { '@id': `${SITE.url}/#org` }, publisher: { '@id': `${SITE.url}/#org` }, image: `${SITE.url}/og.png`,
+  },
+  {
+    '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Inicio', item: `${SITE.url}/` },
+      { '@type': 'ListItem', position: 2, name: 'Guías', item: `${SITE.url}/guias/` },
+      { '@type': 'ListItem', position: 3, name: g.short, item: url },
+    ],
+  },
+];
+const fecha = new Date(g.updated).toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+<Base title={`${g.title} | Mark Vendo`} description={g.description} schema={schema} current="guias" status="en línea · guías de marketing para gente de escenario">
+  <p class="day">Guía · actualizada el {fecha}</p>
+  <article class="blk" aria-labelledby="guia-h">
+    <Msg tail wide>
+      <span class="kicker">Guía en preguntas y respuestas</span>
+      <h1 class="h" id="guia-h">{g.title}</h1>
+      <p class="lead">{g.intro}</p>
+    </Msg>
+    {g.qa.map((x) => (
+      <>
+        <Msg from="you" tail><h2 class="h3">{x.q}</h2></Msg>
+        <Msg tail wide>{x.a.map((p) => <p>{p}</p>)}</Msg>
+      </>
+    ))}
+    <p class="sys"><Icon name="lock" />Consejos generales. Cada público es distinto: ningún método garantiza resultados concretos.</p>
+  </article>
+
+  <section class="blk" aria-labelledby="mas-h">
+    <Msg from="you" tail>¿Tienes más guías?</Msg>
+    <Msg tail wide>
+      <h2 class="h3" id="mas-h">Claro, aquí tienes más</h2>
+      <ul class="guias">{others.map((o) => <li><a class="seg-link" href={`/guias/${o.slug}/`}>{o.short} →</a></li>)}</ul>
+      <a class="seg-link" href="/guias/">Ver todas las guías</a>
+    </Msg>
+  </section>
+
+  <Contact />
+</Base>

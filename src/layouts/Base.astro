@@ -28,6 +28,7 @@ const chats = [
   ...SEGMENTS.map((s, i) => ({ key: s.slug, href: `/${s.slug}/`, name: `Mark para ${s.short.toLowerCase()}`, preview: s.quote, time: '10:06', icon: segIc[i], cls: segAv[i] })),
   { key: 'early', href: '/#acceso-anticipado', name: 'Acceso anticipado', preview: 'Busco salas, productoras y artistas…', time: '10:12', icon: 'ticket', cls: 'av--f', badge: 'Nuevo' },
   { key: 'faq', href: '/#preguntas', name: 'Preguntas frecuentes', preview: '¿Tengo que instalar algo? No.', time: '10:14', icon: 'q', cls: 'av--b' },
+  { key: 'guias', href: '/guias/', name: 'Guías', preview: '¿Cómo promociono mi obra de teatro?', time: '10:15', icon: 'list', cls: 'av--c' },
 ];
 
 const orgSchema = {
@@ -118,7 +119,7 @@ const allSchema = [orgSchema, siteSchema, ...schema];
             </div>
             <div>
               <h2>Mark para</h2>
-              <ul>{SEGMENTS.map((s) => <li><a href={`/${s.slug}/`}>{s.short}</a></li>)}</ul>
+              <ul>{SEGMENTS.map((s) => <li><a href={`/${s.slug}/`}>{s.short}</a></li>)}<li><a href="/guias/">Guías</a></li></ul>
             </div>
             <div>
               <h2>Legal</h2>
