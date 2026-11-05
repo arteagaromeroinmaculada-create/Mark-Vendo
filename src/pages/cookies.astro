@@ -17,5 +17,7 @@ const analytics = !!SITE.gtmId;
   <p>Al pulsar un botón de WhatsApp sales de esta web: WhatsApp aplica entonces su propia política de cookies.</p>
 
   <h2>3. Cómo gestionarlas</h2>
-  <p>Puedes aceptar o rechazar las cookies opcionales en el aviso que aparece al entrar y cambiar de opinión desde «Configurar cookies», en el pie de la página. También puedes borrarlas desde la configuración de tu navegador.</p>
+  {analytics
+    ? <p>Puedes aceptar o rechazar las cookies opcionales en el aviso que aparece al entrar y cambiar de opinión desde «Configurar cookies», en el pie de la página. También puedes borrarlas desde la configuración de tu navegador.</p>
+    : <p>Como solo usamos almacenamiento técnico, no mostramos aviso de cookies. Puedes borrar estos datos cuando quieras desde la configuración de tu navegador.</p>}
 </Legal>
