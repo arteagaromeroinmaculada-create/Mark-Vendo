@@ -22,7 +22,7 @@ Edita `src/config/site.ts` o define estas variables de entorno en el hosting:
 | `PUBLIC_WHATSAPP_NUMBER` | Número de Mark, formato `34600111222` | No se muestran los botones de WhatsApp |
 | `PUBLIC_LEAD_ENDPOINT` | URL que recibe los contactos (POST JSON), o `netlify` para usar Netlify Forms (avisos por email desde el panel de Netlify) | Modo demo: no envía nada y va a /gracias/ |
 | `PUBLIC_GTM_ID` | Google Tag Manager `GTM-XXXXXXX` | Sin analítica y sin aviso de cookies |
-| `PUBLIC_CONTACT_EMAIL` | Email de contacto | `arteagaromeroinmaculada+mark@gmail.com` |
+| `PUBLIC_CONTACT_EMAIL` | Email de contacto | `markvendomas@gmail.com` |
 | `PUBLIC_OWNER_NAME` / `_NIF` / `_ADDRESS` | Datos del titular para los textos legales | Marcadores en amarillo |
 
 ### Estado de las funcionalidades

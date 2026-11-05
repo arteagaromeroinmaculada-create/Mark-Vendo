@@ -10,7 +10,7 @@ export const SITE = {
   url: env.PUBLIC_SITE_URL || 'https://markvendo.com',
   locale: 'es_ES',
   lang: 'es-ES',
-  email: env.PUBLIC_CONTACT_EMAIL || 'arteagaromeroinmaculada+mark@gmail.com',
+  email: env.PUBLIC_CONTACT_EMAIL || 'markvendomas@gmail.com',
 
   /**
    * Número de WhatsApp de Mark en formato internacional sin "+" ni espacios (p. ej. 34600111222).
@@ -23,7 +23,7 @@ export const SITE = {
    * Endpoint que recibe los contactos (POST JSON): webhook de CRM, Make, Zapier, Formspree, API propia…
    * Si está vacío, la web funciona en modo demostración: no envía datos y redirige a /gracias/.
    */
-  leadEndpoint: env.PUBLIC_LEAD_ENDPOINT || 'https://formsubmit.co/ajax/arteagaromeroinmaculada%2Bmark@gmail.com',
+  leadEndpoint: env.PUBLIC_LEAD_ENDPOINT || 'https://formsubmit.co/ajax/markvendomas@gmail.com',
 
   /**
    * Códigos de verificación de Google Search Console y Bing Webmaster Tools
