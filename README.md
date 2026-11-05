@@ -18,7 +18,7 @@ Edita `src/config/site.ts` o define estas variables de entorno en el hosting:
 
 | Variable | Para qué | Si se deja vacía |
 | --- | --- | --- |
-| `PUBLIC_SITE_URL` | Dominio definitivo (canonical, sitemap, Open Graph) | `https://mark-vendo.vercel.app` (provisional hasta tener dominio) |
+| `PUBLIC_SITE_URL` | Dominio definitivo (canonical, sitemap, Open Graph) | `https://markvendo.com` |
 | `PUBLIC_WHATSAPP_NUMBER` | Número de Mark, formato `34600111222` | No se muestran los botones de WhatsApp |
 | `PUBLIC_LEAD_ENDPOINT` | URL que recibe los contactos (POST JSON), o `netlify` para usar Netlify Forms (avisos por email desde el panel de Netlify) | Modo demo: no envía nada y va a /gracias/ |
 | `PUBLIC_GTM_ID` | Google Tag Manager `GTM-XXXXXXX` | Sin analítica y sin aviso de cookies |
