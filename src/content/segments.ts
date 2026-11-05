@@ -23,10 +23,59 @@ export interface Segment {
 
 export const SEGMENTS: Segment[] = [
   {
+    slug: 'artistas-y-monologuistas',
+    formValue: 'artista',
+    short: 'Monologuistas, artistas y compañías',
+    kicker: 'Para monologuistas, cómicos, actores, compañías y grupos de teatro, magos, músicos y showpeople',
+    quote: 'Tú subes al escenario. Yo me ocupo de que el patio de butacas se entere.',
+    examples: [
+      'Reels de actuaciones',
+      'Vídeos cortos a partir de grabaciones largas',
+      'Promoción de próximas fechas',
+      'Promoción de cada función y gira',
+      'Publicaciones de giras',
+      'Adaptación a varias plataformas',
+    ],
+    cta: 'Mark para mi carrera',
+    seo: {
+      title: 'Marketing y reels para monologuistas, artistas y compañías de teatro | Mark Vendo',
+      description:
+        'Para monologuistas, compañías de teatro, artistas y showpeople: mándale a Mark la grabación de tu función por WhatsApp y te devuelve reels, vídeos cortos y publicaciones para tus próximas fechas.',
+      h1: 'Tus actuaciones, convertidas en reels. Sin que tengas que editar',
+      lead:
+        'Tienes horas de actuaciones, ensayos y backstage en el móvil, y ningún día para editarlas. Mándamelas por WhatsApp y yo saco los reels, los textos y la promoción de tus próximas fechas.',
+    },
+    pains: [
+      'Tienes vídeos de tus actuaciones, pero no sabes (o no quieres) editar reels.',
+      'Publicas a rachas: mucho antes de un bolo, nada el resto del mes.',
+      'Necesitas que te conozca gente nueva, no solo tus seguidores de siempre.',
+      'Tu tiempo es para escribir, ensayar y actuar.',
+    ],
+    campaign: [
+      { title: 'Reels', text: 'Los mejores momentos de tu actuación en vertical y con subtítulos.' },
+      { title: 'Próximas fechas', text: 'Cada bolo con su anuncio y su recordatorio.' },
+      { title: 'Gira', text: 'Una pieza por ciudad y el resumen de la gira.' },
+      { title: 'Marca personal', text: 'Backstage, procesos y momentos que te hacen reconocible.' },
+      { title: 'Grabaciones largas', text: 'Un monólogo o un concierto entero da para semanas.' },
+      { title: 'Multiplataforma', text: 'El mismo vídeo adaptado a Instagram, TikTok y Facebook.' },
+    ],
+    chat: [
+      { from: 'client', text: 'Mark, te mando el monólogo de anoche entero. Son 25 minutos 😅' },
+      { from: 'client', media: 'video', label: 'Vídeo · 25:04' },
+      { from: 'mark', text: 'Me encanta. Saco 5 clips cortos con subtítulos. El de la cola del súper tiene pinta de reel. ¿Tu próxima fecha sigue siendo el sábado 22 en Valencia?' },
+      { from: 'client', text: 'Sí, y quedan pocas entradas.' },
+      { from: 'mark', text: 'Pues el primer reel lleva el «últimas entradas». Te lo enseño en un rato.' },
+    ],
+    faq: [
+      { q: '¿Necesito vídeos de buena calidad?', a: 'Basta con vídeos grabados con el móvil, con buena luz y buen sonido. Mark se encarga de recortar, subtitular y elegir los mejores momentos.' },
+      { q: '¿Mark sirve si no tengo muchos seguidores?', a: 'Sí. Mark te ayuda a publicar con constancia y a promocionar cada fecha. No promete seguidores ni resultados concretos.' },
+    ],
+  },
+  {
     slug: 'salas-y-teatros',
     formValue: 'sala',
-    short: 'Salas y teatros',
-    kicker: 'Para salas de conciertos, teatros, salas de monólogos y espacios culturales',
+    short: 'Teatros y salas',
+    kicker: 'Para teatros, salas de monólogos, salas de conciertos y espacios culturales',
     quote: 'Tú tienes la programación. Yo me ocupo de que llegue al público.',
     examples: [
       'Campañas para cada espectáculo',
@@ -38,10 +87,10 @@ export const SEGMENTS: Segment[] = [
     ],
     cta: 'Mark para mi sala',
     seo: {
-      title: 'Marketing y redes sociales para salas de conciertos y teatros | Mark Vendo',
+      title: 'Marketing y redes sociales para teatros y salas de monólogos | Mark Vendo',
       description:
         'Mark convierte los vídeos, fotos y carteles de tu programación en campañas para redes sociales. Tu sala solo tiene que mandárselo por WhatsApp.',
-      h1: 'Marketing para salas y teatros que solo te pide un WhatsApp',
+      h1: 'Marketing para teatros y salas que solo te pide un WhatsApp',
       lead:
         'Cada semana entran carteles, fotos y vídeos de artistas, y cada espectáculo necesita su propia campaña. Mándamelo todo por WhatsApp y yo preparo el contenido de toda tu programación para redes sociales.',
     },
@@ -118,55 +167,6 @@ export const SEGMENTS: Segment[] = [
     faq: [
       { q: '¿Mark puede llevar varios eventos a la vez?', a: 'Sí. Mark identifica a qué evento pertenece cada material y mantiene una ficha y una campaña para cada uno.' },
       { q: '¿Respeta la imagen de cada evento o marca?', a: 'Mark trabaja a partir de tus carteles, tipografías y colores para que todo el contenido mantenga la misma imagen.' },
-    ],
-  },
-  {
-    slug: 'artistas-y-monologuistas',
-    formValue: 'artista',
-    short: 'Artistas y monologuistas',
-    kicker: 'Para monologuistas, cómicos, músicos, DJs, actores y compañías',
-    quote: 'Tú haces reír, cantar o emocionar. Yo hago que te descubran.',
-    examples: [
-      'Reels de actuaciones',
-      'Vídeos cortos a partir de grabaciones largas',
-      'Promoción de próximas fechas',
-      'Contenido de marca personal',
-      'Publicaciones de giras',
-      'Adaptación a varias plataformas',
-    ],
-    cta: 'Mark para mi carrera',
-    seo: {
-      title: 'Reels y redes sociales para músicos, cómicos y monologuistas | Mark Vendo',
-      description:
-        'Mándale a Mark la grabación de tu actuación por WhatsApp y te devuelve reels, vídeos cortos y publicaciones para promocionar tus próximas fechas.',
-      h1: 'Tus actuaciones, convertidas en reels. Sin que tengas que editar',
-      lead:
-        'Tienes horas de actuaciones, ensayos y backstage en el móvil, y ningún día para editarlas. Mándamelas por WhatsApp y yo saco los reels, los textos y la promoción de tus próximas fechas.',
-    },
-    pains: [
-      'Tienes vídeos de tus actuaciones, pero no sabes (o no quieres) editar reels.',
-      'Publicas a rachas: mucho antes de un bolo, nada el resto del mes.',
-      'Necesitas que te conozca gente nueva, no solo tus seguidores de siempre.',
-      'Tu tiempo es para escribir, ensayar y actuar.',
-    ],
-    campaign: [
-      { title: 'Reels', text: 'Los mejores momentos de tu actuación en vertical y con subtítulos.' },
-      { title: 'Próximas fechas', text: 'Cada bolo con su anuncio y su recordatorio.' },
-      { title: 'Gira', text: 'Una pieza por ciudad y el resumen de la gira.' },
-      { title: 'Marca personal', text: 'Backstage, procesos y momentos que te hacen reconocible.' },
-      { title: 'Grabaciones largas', text: 'Un monólogo o un concierto entero da para semanas.' },
-      { title: 'Multiplataforma', text: 'El mismo vídeo adaptado a Instagram, TikTok y Facebook.' },
-    ],
-    chat: [
-      { from: 'client', text: 'Mark, te mando el monólogo de anoche entero. Son 25 minutos 😅' },
-      { from: 'client', media: 'video', label: 'Vídeo · 25:04' },
-      { from: 'mark', text: 'Me encanta. Saco 5 clips cortos con subtítulos. El de la cola del súper tiene pinta de reel. ¿Tu próxima fecha sigue siendo el sábado 22 en Valencia?' },
-      { from: 'client', text: 'Sí, y quedan pocas entradas.' },
-      { from: 'mark', text: 'Pues el primer reel lleva el «últimas entradas». Te lo enseño en un rato.' },
-    ],
-    faq: [
-      { q: '¿Necesito vídeos de buena calidad?', a: 'Basta con vídeos grabados con el móvil, con buena luz y buen sonido. Mark se encarga de recortar, subtitular y elegir los mejores momentos.' },
-      { q: '¿Mark sirve si no tengo muchos seguidores?', a: 'Sí. Mark te ayuda a publicar con constancia y a promocionar cada fecha. No promete seguidores ni resultados concretos.' },
     ],
   },
 ];

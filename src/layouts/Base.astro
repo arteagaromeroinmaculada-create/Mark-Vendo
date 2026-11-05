@@ -15,7 +15,7 @@ interface Props {
   status?: string;
   dock?: boolean;
 }
-const { title, description, noindex = false, schema = [], current = 'home', status = 'en línea · tu compañero de marketing', dock = true } = Astro.props;
+const { title, description, noindex = false, schema = [], current = 'home', status = 'en línea · marketing para gente de escenario', dock = true } = Astro.props;
 const canonical = new URL(Astro.url.pathname, SITE.url).href;
 const og = new URL('/og.png', SITE.url).href;
 const wa = waLink();
@@ -75,7 +75,7 @@ const allSchema = [orgSchema, siteSchema, ...schema];
   <div class="app">
     <aside class="side" aria-label="Secciones">
       <div class="side__top"><Logo /><span class="pill pill--new">Acceso anticipado</span></div>
-      <p class="side__hint">Tu compañero de marketing vive en WhatsApp.</p>
+      <p class="side__hint">El marketing de la gente de escenario, por WhatsApp.</p>
       <ul class="chats">
         {chats.map((c) => (
           <li>
@@ -113,7 +113,7 @@ const allSchema = [orgSchema, siteSchema, ...schema];
           <div class="foot__cols">
             <div>
               <h2>Mark Vendo</h2>
-              <p>Tu compañero de marketing con inteligencia artificial. Trabaja por WhatsApp para salas, promotores y artistas en España.</p>
+              <p>Tu compañero de marketing con inteligencia artificial. Trabaja por WhatsApp para monologuistas, artistas, compañías de teatro, teatros y promotores en España.</p>
               <p><a href={`mailto:${SITE.email}`}>{SITE.email}</a></p>
             </div>
             <div>

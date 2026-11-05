@@ -41,16 +41,16 @@ const schema = [
   { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: FAQ.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
 ];
 ---
-<Base title="Mark Vendo · Marketing para espectáculos por WhatsApp" description="Mándale a Mark tus vídeos, fotos y carteles por WhatsApp. Los convierte en reels, publicaciones y campañas para tus redes. Para salas, promotores y artistas." schema={schema}>
+<Base title="Mark Vendo · Marketing por WhatsApp para teatro, monólogos y artistas en escena" description="Para monologuistas, compañías de teatro, artistas y showpeople. Mándale a Mark tus vídeos, fotos y carteles por WhatsApp y los convierte en reels y publicaciones para llenar tus funciones." schema={schema}>
   <p class="day">Hoy</p>
   <p class="sys"><Icon name="lock" />Las conversaciones de esta web son ejemplos para enseñarte cómo trabaja Mark. No son clientes reales.</p>
 
   <section class="blk" aria-labelledby="hero-h">
     <Msg from="you" tail time="10:00">Hola 👋 ¿Quién eres?</Msg>
     <Msg tail wide>
-      <span class="kicker">¡Hola! Soy Mark</span>
+      <span class="kicker">¡Hola! Soy Mark, el marketing de la gente de escenario</span>
       <h1 class="big" id="hero-h">Tú grabas. Me lo mandas por <span class="hl">WhatsApp</span>. <em class="s">Yo</em> me encargo del marketing.</h1>
-      <p class="lead">Mándame tus vídeos, fotos y los detalles de cada espectáculo. Yo los convierto en contenido para tus redes.</p>
+      <p class="lead">Para monologuistas, artistas, compañías de teatro y showpeople. Mándame tus vídeos, fotos y los detalles de cada función y los convierto en contenido para tus redes.</p>
       <span class="meta">10:01</span>
     </Msg>
     <div class="qr qr--row">
