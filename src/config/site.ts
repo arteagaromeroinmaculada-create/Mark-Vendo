@@ -23,7 +23,7 @@ export const SITE = {
    * Endpoint que recibe los contactos (POST JSON): webhook de CRM, Make, Zapier, Formspree, API propia…
    * Si está vacío, la web funciona en modo demostración: no envía datos y redirige a /gracias/.
    */
-  leadEndpoint: env.PUBLIC_LEAD_ENDPOINT || 'https://formsubmit.co/ajax/markvendomas@gmail.com',
+  leadEndpoint: env.PUBLIC_LEAD_ENDPOINT || 'web3forms:cd3b4243-123a-437e-92cc-202a6122c15e',
 
   /**
    * Códigos de verificación de Google Search Console y Bing Webmaster Tools

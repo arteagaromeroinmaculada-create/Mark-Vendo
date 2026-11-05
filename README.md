@@ -81,4 +81,4 @@ Por decisión del proyecto, en móvil el zoom está bloqueado y no hay scroll ho
 1. En vercel.com → Add New → Project → importa el repositorio `Mark-Vendo`. Vercel detecta Astro solo (build `npm run build`, salida `dist`). No hace falta configurar nada más.
 2. Cada push a `main` se publica automáticamente.
 3. Cuando tengas dominio: Vercel → Settings → Domains, y cambia `PUBLIC_SITE_URL` (o el valor por defecto en `src/config/site.ts`).
-4. Contactos: llegan por email vía FormSubmit. El primer envío dispara un email de activación a la dirección configurada: hay que pulsar «Activate Form» una sola vez.
+4. Contactos: llegan por email vía Web3Forms (la clave de acceso es pública por diseño y está en `src/config/site.ts`; panel en app.web3forms.com).
