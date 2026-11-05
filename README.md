@@ -18,7 +18,7 @@ Edita `src/config/site.ts` o define estas variables de entorno en el hosting:
 
 | Variable | Para qué | Si se deja vacía |
 | --- | --- | --- |
-| `PUBLIC_SITE_URL` | Dominio definitivo (canonical, sitemap, Open Graph) | `https://mark-vendo-web.vercel.app` (provisional hasta tener dominio) |
+| `PUBLIC_SITE_URL` | Dominio definitivo (canonical, sitemap, Open Graph) | `https://mark-vendo.vercel.app` (provisional hasta tener dominio) |
 | `PUBLIC_WHATSAPP_NUMBER` | Número de Mark, formato `34600111222` | No se muestran los botones de WhatsApp |
 | `PUBLIC_LEAD_ENDPOINT` | URL que recibe los contactos (POST JSON), o `netlify` para usar Netlify Forms (avisos por email desde el panel de Netlify) | Modo demo: no envía nada y va a /gracias/ |
 | `PUBLIC_GTM_ID` | Google Tag Manager `GTM-XXXXXXX` | Sin analítica y sin aviso de cookies |
@@ -78,7 +78,7 @@ Por decisión del proyecto, en móvil el zoom está bloqueado y no hay scroll ho
 
 ## Publicación (GitHub + Vercel)
 
-1. En vercel.com → Add New → Project → importa el repositorio `mark-vendo-web`. Vercel detecta Astro solo (build `npm run build`, salida `dist`). No hace falta configurar nada más.
+1. En vercel.com → Add New → Project → importa el repositorio `Mark-Vendo`. Vercel detecta Astro solo (build `npm run build`, salida `dist`). No hace falta configurar nada más.
 2. Cada push a `main` se publica automáticamente.
 3. Cuando tengas dominio: Vercel → Settings → Domains, y cambia `PUBLIC_SITE_URL` (o el valor por defecto en `src/config/site.ts`).
 4. Contactos: llegan por email vía FormSubmit. El primer envío dispara un email de activación a la dirección configurada: hay que pulsar «Activate Form» una sola vez.

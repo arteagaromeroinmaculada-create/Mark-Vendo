@@ -7,7 +7,7 @@ const env = (import.meta as any).env ?? {};
 export const SITE = {
   name: 'Mark Vendo',
   /** Dominio definitivo. PROVISIONAL: confirmar antes de publicar. */
-  url: env.PUBLIC_SITE_URL || 'https://mark-vendo-web.vercel.app',
+  url: env.PUBLIC_SITE_URL || 'https://mark-vendo.vercel.app',
   locale: 'es_ES',
   lang: 'es-ES',
   email: env.PUBLIC_CONTACT_EMAIL || 'arteagaromeroinmaculada+mark@gmail.com',
