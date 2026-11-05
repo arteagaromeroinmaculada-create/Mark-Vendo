@@ -49,6 +49,8 @@ const allSchema = [orgSchema, siteSchema, ...schema];
   <link rel="canonical" href={canonical} />
   <link rel="alternate" hreflang="es-ES" href={canonical} />
   {noindex && <meta name="robots" content="noindex, follow" />}
+  {SITE.googleVerification && <meta name="google-site-verification" content={SITE.googleVerification} />}
+  {SITE.bingVerification && <meta name="msvalidate.01" content={SITE.bingVerification} />}
   <meta name="theme-color" content="#ffffff" />
   <meta name="color-scheme" content="light" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />

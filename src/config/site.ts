@@ -25,6 +25,13 @@ export const SITE = {
    */
   leadEndpoint: env.PUBLIC_LEAD_ENDPOINT || 'https://formsubmit.co/ajax/arteagaromeroinmaculada%2Bmark@gmail.com',
 
+  /**
+   * Códigos de verificación de Google Search Console y Bing Webmaster Tools
+   * (solo el valor de content="…" de la etiqueta meta que te dan).
+   */
+  googleVerification: env.PUBLIC_GOOGLE_SITE_VERIFICATION || '',
+  bingVerification: env.PUBLIC_BING_SITE_VERIFICATION || '',
+
   /** Google Tag Manager (GTM-XXXXXXX). Solo se carga si el visitante acepta las cookies de analítica. */
   gtmId: env.PUBLIC_GTM_ID || '',
 
