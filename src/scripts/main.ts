@@ -146,6 +146,13 @@ async function sendLead(data: Record<string, string>, formId: string) {
     Object.entries(payload).forEach(([k, v]) => body.append(k, String(v ?? '')));
     const res = await fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: body.toString() });
     if (!res.ok) throw new Error(String(res.status));
+  } else if (endpoint.startsWith('web3forms:')) {
+    // Web3Forms: PUBLIC_LEAD_ENDPOINT=web3forms:<access_key>. Los contactos llegan al email asociado a la clave.
+    const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify({ ...payload, access_key: endpoint.slice(10), subject: `Nuevo contacto Mark Vendo: ${data.nombre || ''} (${data.segmento || 'sin tipo'})`, from_name: 'Web Mark Vendo', botcheck: '' }) });
+    let info: { success?: boolean; message?: string } = {};
+    try { info = await res.json(); } catch { /* */ }
+    if (!res.ok || info.success === false) throw new Error(info.message || String(res.status));
   } else if (endpoint) {
     const extra = endpoint.includes('formsubmit.co') ? { _subject: `Nuevo contacto Mark Vendo: ${data.nombre || ''} (${data.segmento || 'sin tipo'})`, _template: 'table', _captcha: 'false' } : {};
     const res = await fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify({ ...payload, ...extra }) });

@@ -7,7 +7,7 @@ const TYPES = [
   { v: 'artista', l: 'Artista' }, { v: 'monologuista', l: 'Monologuista' }, { v: 'otro', l: 'Otro' },
 ];
 ---
-<form class="form" id={id} data-lead-form data-endpoint={SITE.leadEndpoint} novalidate action={SITE.leadEndpoint && SITE.leadEndpoint !== 'netlify' ? SITE.leadEndpoint : '/gracias/'} method="post">
+<form class="form" id={id} data-lead-form data-endpoint={SITE.leadEndpoint} novalidate action={SITE.leadEndpoint.startsWith('http') ? SITE.leadEndpoint : '/gracias/'} method="post">
   <div class="f"><label for={`${id}-nombre`}>Nombre</label><input id={`${id}-nombre`} name="nombre" type="text" autocomplete="name" required maxlength="120" /><span class="f__err" aria-live="polite"></span></div>
   <div class="f"><label for={`${id}-email`}>Email</label><input id={`${id}-email`} name="email" type="email" autocomplete="email" inputmode="email" required maxlength="160" /><span class="f__err" aria-live="polite"></span></div>
   <div class="f f--full"><label for={`${id}-empresa`}>Empresa, sala o nombre artístico</label><input id={`${id}-empresa`} name="empresa" type="text" autocomplete="organization" required maxlength="160" /><span class="f__err" aria-live="polite"></span></div>
