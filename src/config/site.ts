@@ -16,7 +16,7 @@ export const SITE = {
    * Número de WhatsApp de Mark en formato internacional sin "+" ni espacios (p. ej. 34600111222).
    * Si se deja vacío, los botones de WhatsApp no se muestran.
    */
-  whatsapp: env.PUBLIC_WHATSAPP_NUMBER || '34608276455',
+  whatsapp: env.PUBLIC_WHATSAPP_NUMBER || '34624816724',
   whatsappText: 'Hola Mark, tengo un espectáculo que promocionar. ¿Me cuentas cómo funciona?',
 
   /**
