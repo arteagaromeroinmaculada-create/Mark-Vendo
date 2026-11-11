@@ -13,7 +13,7 @@ export const FAQ: { q: string; a: string }[] = [
   },
   {
     q: '¿En qué redes sociales funciona?',
-    a: 'Mark prepara el contenido en los formatos de Instagram, TikTok y Facebook. La publicación directa en redes conectadas está en desarrollo; mientras tanto, te entrega cada pieza lista para publicar.',
+    a: 'Mark prepara el contenido en los formatos de Instagram, TikTok y Facebook. Conectas tus redes con un enlace que te manda Mark y él programa y publica cada pieza en su fecha, siempre después de tu OK.',
   },
   {
     q: '¿Qué material necesito?',

@@ -14,16 +14,17 @@ export const STATUS_LABEL: Record<Status, string> = {
 };
 
 export const FEATURES: { title: string; text: string; status: Status }[] = [
-  { title: 'Ideas de contenido', text: 'Te propongo qué publicar para cada espectáculo y cuándo.', status: 'piloto' },
-  { title: 'Textos y copies', text: 'Escribo publicaciones, stories y llamadas a la acción con tu tono.', status: 'piloto' },
-  { title: 'Edición de vídeos cortos', text: 'Corto, ordeno, subtitulo y saco lo mejor de tus grabaciones.', status: 'piloto' },
-  { title: 'Reels', text: 'Monto reels verticales a partir de tus vídeos en bruto.', status: 'piloto' },
-  { title: 'Diseño y adaptación de creatividades', text: 'Adapto carteles y fotos a cada formato sin perder tu imagen.', status: 'piloto' },
-  { title: 'Calendario editorial', text: 'Ordeno cada campaña: anuncio, artista, recordatorio, cuenta atrás y últimas entradas.', status: 'piloto' },
-  { title: 'Adaptación multicanal', text: 'Preparo cada pieza en el formato de Instagram, TikTok o Facebook.', status: 'piloto' },
-  { title: 'Programación y publicación', text: 'Publico y programo en tus redes conectadas, siempre con tu OK.', status: 'desarrollo' },
-  { title: 'Análisis de resultados', text: 'Te cuento qué ha funcionado y propongo mejoras para la siguiente.', status: 'futuro' },
+  { title: 'Entiendo audios, fotos, vídeos y carteles', text: 'Me mandas el material tal cual, incluso notas de voz. Si me falta un dato, te lo pregunto.', status: 'piloto' },
+  { title: 'Plan de contenido para cada función', text: 'Te propongo qué publicar y cuándo: anuncio, recordatorios, cuenta atrás y últimas entradas.', status: 'piloto' },
+  { title: 'Textos y copies con tu tono', text: 'Publicaciones, stories y llamadas a la acción escritas como hablas tú.', status: 'piloto' },
+  { title: 'Reels y vídeos cortos editados', text: 'Quito silencios, añado subtítulos palabra a palabra y rótulos, y saco lo mejor de tus grabaciones.', status: 'piloto' },
+  { title: 'Carruseles y publicaciones con tus fotos y carteles', text: 'Adapto tu material a cada formato sin perder tu imagen.', status: 'piloto' },
+  { title: 'Tu estilo de vídeo', text: 'Copio el estilo de un vídeo que te guste o eliges uno de mi muestrario.', status: 'piloto' },
+  { title: 'Programación y publicación en tus redes', text: 'Conectas tus redes con un enlace y publico en la fecha acordada, siempre con tu OK.', status: 'piloto' },
+  { title: 'Tu calendario para tenerlo todo controlado', text: 'Un enlace personal donde ves lo programado, apruebas, pides cambios, quitas piezas o cambias fechas.', status: 'piloto' },
+  { title: 'Varios proyectos desde el mismo WhatsApp', text: 'Tu compañía, tu show y tu marca personal, cada uno con su contenido.', status: 'piloto' },
+  { title: 'Análisis de resultados', text: 'Te contaré qué ha funcionado y propondré mejoras para la siguiente.', status: 'futuro' },
 ];
 
 export const FEATURES_NOTE =
-  'Mientras la publicación directa no esté disponible para tu red, te entrego cada pieza lista para publicar en un par de toques.';
+  'Tú solo hablas conmigo por WhatsApp. El calendario es para cuando quieras verlo todo junto: no tienes que entrar si no quieres.';

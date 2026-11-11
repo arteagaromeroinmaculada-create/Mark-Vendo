@@ -254,7 +254,7 @@ export const GUIAS: Guia[] = [
       {
         q: '¿Cómo funciona Mark Vendo paso a paso?',
         a: [
-          'Grabas vídeos y haces fotos, y se los mandas a Mark por WhatsApp junto con los detalles del evento. Mark prepara el contenido y, si le falta algo, te lo pregunta. Después te envía una vista previa y tú la apruebas. Por último, te entrega cada pieza lista para publicar; la publicación directa en redes conectadas está en desarrollo.',
+          'Grabas vídeos y haces fotos, y se los mandas a Mark por WhatsApp junto con los detalles del evento. Mark prepara el contenido y, si le falta algo, te lo pregunta. Después te envía una vista previa y tú la apruebas. Por último, la programa y la publica en tus redes conectadas en la fecha acordada.',
         ],
       },
       {
