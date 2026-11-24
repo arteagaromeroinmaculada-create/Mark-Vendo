@@ -23,7 +23,14 @@ import Msg from './Msg.astro';
 
   <Msg from="you" tail>Nuevo show el 14, ¡hay que anunciarlo! 📣</Msg>
   <Msg tail time="10:11">
-    <h3 class="h3">Un anuncio, <em class="s hl">una campaña entera</em>.</h3>
-    <div class="out phases" aria-label="Cinco fases"><span>Anuncio</span><span>Artista</span><span>Recordatorio</span><span>Cuenta atrás</span><span>Últimas entradas</span></div>
+    <h3 class="h3">Un anuncio, <em class="s hl">todo el evento</em>.</h3>
+    <div class="tk" aria-label="Ficha del evento con cinco fases: anuncio, artista, recordatorio, cuenta atrás y últimas entradas">
+      <div class="tk__date" aria-hidden="true"><small>Vie</small><b>14</b><small>20:30</small></div>
+      <div class="tk__body">
+        <small>Monólogo · ejemplo</small>
+        <b>Nuevo show</b>
+        <div class="phases"><span>Anuncio</span><span>Artista</span><span>Recordatorio</span><span>Cuenta atrás</span><span>Últimas entradas</span></div>
+      </div>
+    </div>
   </Msg>
 </section>

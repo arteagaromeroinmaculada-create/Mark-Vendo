@@ -25,7 +25,7 @@ const demo: ChatMsg[] = [
   { from: 'mark', text: 'Ya tengo el material. Confirmo tres cosas:<br>¿Viernes 14 a las 20:30?<br>¿Entradas a 18 €?<br>¿Este es el enlace de venta?' },
   { from: 'client', text: 'Sí, todo correcto.' },
   { from: 'mark', text: 'Perfecto. Te preparo un reel principal, dos vídeos cortos, una publicación, stories para la fecha y todos los textos.' },
-  { from: 'mark', media: 'preview', caption: 'Ya tienes la campaña. Échale un ojo 👀' },
+  { from: 'mark', media: 'preview', caption: 'Ya tienes lo del evento. Échale un ojo 👀' },
   { from: 'client', text: 'Me gusta. ¡Adelante! 👌' },
   { from: 'mark', text: '¡Publicado! Ya preparo los recordatorios para que no se nos pase la fecha.' },
 ];
@@ -48,7 +48,7 @@ const schema = [
   <section class="blk blk--hero" aria-labelledby="hero-h">
     <Msg from="you" tail time="10:00">Hola 👋 ¿Quién eres?</Msg>
     <Msg tail wide>
-      <span class="kicker">¡Hola! Soy Mark</span>
+      <span class="kicker">¡Hola! Soy Mark <span class="wa-badge"><Icon name="wa" />Me llevas desde WhatsApp</span></span>
       <h1 class="big" id="hero-h">Tú grabas. Me lo mandas por <span class="hl">WhatsApp</span>. <em class="s">Yo</em> me encargo del marketing.</h1>
       <p class="autopilot">Tu contenido en <b>piloto automático</b>. <span>Sin perder el control.</span></p>
       <p class="lead">Para monologuistas, artistas, compañías de teatro y showpeople. Yo preparo el contenido de tus redes; tú decides qué se publica.</p>
@@ -70,6 +70,20 @@ const schema = [
     <Msg from="you">Tengo un evento el viernes y todavía no he publicado nada.</Msg>
     <Msg from="you" time="10:03">Tengo vídeos y carteles, pero nunca encuentro tiempo para convertirlos en publicaciones.</Msg>
     <Msg tail time="10:03"><p class="serif-big">Para eso <mark>estoy yo</mark>.</p></Msg>
+  </section>
+
+  <section class="blk" id="por-whatsapp" aria-labelledby="wa-h">
+    <Msg from="you" tail time="10:03">¿Y qué te hace diferente? 🤔</Msg>
+    <Msg tail wide>
+      <span class="kicker">La diferencia</span>
+      <h2 class="h" id="wa-h">A Mark lo controlas <em class="s hl-wa">desde WhatsApp</em>.</h2>
+      <p>No es otra herramienta que tengas que aprender. Me escribes, me mandas un audio, el vídeo o el cartel, y yo me pongo con ello. Lo revisas y lo apruebas en el mismo chat.</p>
+      <ul class="ways">
+        <li class="is-wa"><Icon name="wa" /><small>Lo principal</small><b>Por WhatsApp</b><span>Mensajes, audios, vídeos y carteles. Te enseño cada publicación y me dices «adelante» o qué cambio.</span></li>
+        <li><Icon name="ticket" /><b>Con botones</b><span>Si lo prefieres, entras en tu panel, pulsas «Subir evento» y rellenas lo básico.</span></li>
+        <li><Icon name="mic" /><b>Hablando conmigo</b><span>En tu panel también puedes escribirme o mandarme un audio, como en el chat.</span></li>
+      </ul>
+    </Msg>
   </section>
 
   <HowItWorks />
