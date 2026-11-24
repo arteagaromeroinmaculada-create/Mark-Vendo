@@ -5,6 +5,8 @@ import Icon from '../components/Icon.astro';
 import { SITE, waLink } from '../config/site';
 import { DOODLE } from '../config/doodle';
 import { SEGMENTS } from '../content/segments';
+import bebasUrl from '@fontsource/bebas-neue/files/bebas-neue-latin-400-normal.woff2?url';
+import interUrl from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url';
 
 interface Props {
   title: string;
@@ -24,6 +26,7 @@ const segAv = ['av--c', 'av--d', 'av--e'];
 const segIc = ['stage', 'mega', 'mic2'];
 const chats = [
   { key: 'home', href: '/', name: 'Mark', preview: 'Tú grabas. Me lo mandas por WhatsApp…', time: 'ahora', badge: '1', av: 'M' },
+  { key: 'wa', href: '/#por-whatsapp', name: 'Todo por WhatsApp', preview: 'Me escribes y yo me pongo con ello.', time: '10:03', wa: true, cls: 'av--wa', badgeWa: 'La diferencia' },
   { key: 'como', href: '/#como-funciona', name: 'Cómo funciona', preview: 'Graba. Envía. Aprueba. Yo hago el resto.', time: '10:04', icon: 'list', cls: 'av--b' },
   ...SEGMENTS.map((s, i) => ({ key: s.slug, href: `/${s.slug}/`, name: `Mark para ${s.short.toLowerCase()}`, preview: s.quote, time: '10:06', icon: segIc[i], cls: segAv[i] })),
   { key: 'early', href: '/#acceso-anticipado', name: 'Acceso anticipado', preview: 'Busco salas, productoras y artistas…', time: '10:12', icon: 'ticket', cls: 'av--f', badge: 'Nuevo' },
@@ -51,8 +54,10 @@ const allSchema = [orgSchema, siteSchema, ...schema];
   {noindex && <meta name="robots" content="noindex, follow" />}
   {SITE.googleVerification && <meta name="google-site-verification" content={SITE.googleVerification} />}
   {SITE.bingVerification && <meta name="msvalidate.01" content={SITE.bingVerification} />}
-  <meta name="theme-color" content="#ffffff" />
-  <meta name="color-scheme" content="light" />
+  <meta name="theme-color" content="#121212" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="preload" href={bebasUrl} as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href={interUrl} as="font" type="font/woff2" crossorigin />
   <link rel="icon" href="/favicon.ico" sizes="32x32" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="manifest" href="/site.webmanifest" />
@@ -80,14 +85,14 @@ const allSchema = [orgSchema, siteSchema, ...schema];
   <div class="app">
     <aside class="side" aria-label="Secciones">
       <div class="side__top"><Logo /><span class="pill pill--new">Acceso anticipado</span></div>
-      <p class="side__hint">El marketing de la gente de escenario, por WhatsApp.</p>
+      <p class="side__hint"><Icon name="wa" /><span>El marketing de tus eventos, <b>controlado desde WhatsApp</b>.</span></p>
       <ul class="chats">
         {chats.map((c) => (
           <li>
             <a href={c.href} aria-current={c.key === current ? 'page' : undefined}>
-              <span class:list={['av', c.cls, { 'av--mark': c.av }]}>{c.av ? c.av : <Icon name={c.icon!} />}</span>
+              <span class:list={['av', c.cls, { 'av--mark': c.av }]}>{c.av ? c.av : <Icon name={c.wa ? 'wa' : c.icon!} />}</span>
               <span style="min-width:0"><span class="t">{c.name}</span><span class="p">{c.preview}</span></span>
-              <span class="h">{c.time}{c.badge && <><br /><span class="badge">{c.badge}</span></>}</span>
+              <span class="h">{c.time}{c.badge && <><br /><span class="badge">{c.badge}</span></>}{c.badgeWa && <><br /><span class="badge badge--wa">{c.badgeWa}</span></>}</span>
             </a>
           </li>
         ))}
@@ -145,7 +150,7 @@ const allSchema = [orgSchema, siteSchema, ...schema];
       <div class="dock__in">
         <a class="dock__field" href="#contacto" data-track="cta_click" data-loc="dock"><Icon name="smile" /><span>Escribe a Mark: quiero conocerte</span></a>
         {wa
-          ? <a class="send" href={wa} target="_blank" rel="noopener" data-track="whatsapp_click" data-loc="dock" aria-label="Escribir a Mark por WhatsApp"><Icon name="wa" /></a>
+          ? <a class="send send--wa" href={wa} target="_blank" rel="noopener" data-track="whatsapp_click" data-loc="dock" aria-label="Escribir a Mark por WhatsApp"><Icon name="wa" /></a>
           : <a class="send" href="#contacto" data-track="cta_click" data-loc="dock-send" aria-label="Quiero conocer a Mark"><Icon name="send" /></a>}
       </div>
     </div>
