@@ -17,6 +17,8 @@ export const SITE = {
    * Si se deja vacío, los botones de WhatsApp no se muestran.
    */
   whatsapp: env.PUBLIC_WHATSAPP_NUMBER || '34624816724',
+  /** Alta de cuentas en la app (botón «Crear cuenta»). */
+  signupUrl: env.PUBLIC_SIGNUP_URL || 'https://app.markvendo.com/portal/crear',
   whatsappText: 'Hola Mark, tengo un espectáculo que promocionar. ¿Me cuentas cómo funciona?',
 
   /**

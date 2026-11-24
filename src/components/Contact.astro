@@ -13,6 +13,7 @@ const wa = waLink();
     <h2 class="h" id="contacto-h">¿Tienes un espectáculo que promocionar? <em class="s hl">Déjame el marketing a mí.</em></h2>
     <p>Cuéntame qué haces y te enseño cómo puedo ayudarte. Son ocho preguntas cortas, aquí mismo.</p>
   </Msg>
+  <div class="qr"><a class="primary" href={SITE.signupUrl} data-track="signup_click" data-loc="contacto">Crear mi cuenta ya</a></div>
   {wa && <div class="qr"><a class="wa" href={wa} target="_blank" rel="noopener" data-track="whatsapp_click" data-loc="contacto"><Icon name="wa" /> Prefiero escribirte por WhatsApp</a></div>}
 
   <div class="cform no-js-hide" data-cform data-preset={preset} data-endpoint={SITE.leadEndpoint} data-email={SITE.email}>
