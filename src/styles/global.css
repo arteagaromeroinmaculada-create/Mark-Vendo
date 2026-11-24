@@ -426,3 +426,8 @@ em.s { font-style: normal; color: var(--accent); }
   .blk--hero .lead { font-size: 15px; line-height: 1.4; }
   .blk--hero .big { font-size: 40px !important; }
 }
+
+/* Crear cuenta */
+.qr--row .qr__full { grid-column: 1 / -1; min-height: 54px; font-size: 17px; }
+.side__cta { margin: 12px 12px 0; }
+.qr--row:has(.qr__full) { grid-template-columns: repeat(2, minmax(0, 1fr)); }

@@ -12,7 +12,8 @@ import EarlyAccess from '../components/EarlyAccess.astro';
 import Faq from '../components/Faq.astro';
 import Guias from '../components/Guias.astro';
 import Contact from '../components/Contact.astro';
-import { SITE } from '../config/site';
+import { SITE, waLink } from '../config/site';
+const wa = waLink();
 import { FAQ } from '../content/faq';
 import { SEGMENTS, type ChatMsg } from '../content/segments';
 
@@ -55,7 +56,8 @@ const schema = [
       <span class="meta">10:01</span>
     </Msg>
     <div class="qr qr--row">
-      <a class="primary" href="#contacto" data-track="cta_click" data-loc="hero">Quiero conocer a Mark</a>
+      <a class="primary qr__full" href={SITE.signupUrl} data-track="signup_click" data-loc="hero">Crear cuenta</a>
+      <a href="#contacto" data-track="cta_click" data-loc="hero">Quiero conocer a Mark</a>
       <a href="#como-funciona" data-track="cta_click" data-loc="hero-secundario">¿Cómo funciona?</a>
     </div>
     <p class="sys"><Icon name="lock" />Las conversaciones de esta web son ejemplos para enseñarte cómo trabaja Mark. No son clientes reales.</p>
@@ -84,6 +86,10 @@ const schema = [
         <li><Icon name="mic" /><b>Hablando conmigo</b><span>En tu panel también puedes escribirme o mandarme un audio, como en el chat.</span></li>
       </ul>
     </Msg>
+    <div class="qr qr--row">
+      <a class="primary" href={SITE.signupUrl} data-track="signup_click" data-loc="por-whatsapp">Crear cuenta</a>
+      {wa && <a class="wa" href={wa} target="_blank" rel="noopener" data-track="whatsapp_click" data-loc="por-whatsapp"><Icon name="wa" /> Escribir a Mark</a>}
+    </div>
   </section>
 
   <HowItWorks />

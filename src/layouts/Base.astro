@@ -85,6 +85,7 @@ const allSchema = [orgSchema, siteSchema, ...schema];
   <div class="app">
     <aside class="side" aria-label="Secciones">
       <div class="side__top"><Logo /><span class="pill pill--new">Acceso anticipado</span></div>
+      <a class="btn side__cta" href={SITE.signupUrl} data-track="signup_click" data-loc="sidebar">Crear cuenta</a>
       <p class="side__hint"><Icon name="wa" /><span>El marketing de tus eventos, <b>controlado desde WhatsApp</b>.</span></p>
       <ul class="chats">
         {chats.map((c) => (
@@ -107,7 +108,7 @@ const allSchema = [orgSchema, siteSchema, ...schema];
           <span class="bar__name">Mark Vendo</span>
           <span class="bar__st" data-status>{status}</span>
         </a>
-        <a class="btn btn--light btn--sm bar__cta" href="#contacto" data-track="cta_click" data-loc="header"><span class="full">Quiero conocer a Mark</span><span class="short">Hablemos</span></a>
+        <a class="btn btn--light btn--sm bar__cta" href={SITE.signupUrl} data-track="signup_click" data-loc="header">Crear cuenta</a>
       </header>
 
       <main id="main" class="thread">
@@ -127,7 +128,7 @@ const allSchema = [orgSchema, siteSchema, ...schema];
             </div>
             <div>
               <h2>Mark para</h2>
-              <ul>{SEGMENTS.map((s) => <li><a href={`/${s.slug}/`}>{s.short}</a></li>)}<li><a href="/guias/">Guías</a></li></ul>
+              <ul><li><a href={SITE.signupUrl}>Crear cuenta</a></li>{SEGMENTS.map((s) => <li><a href={`/${s.slug}/`}>{s.short}</a></li>)}<li><a href="/guias/">Guías</a></li></ul>
             </div>
             <div>
               <h2>Legal</h2>

@@ -37,7 +37,8 @@ const schema = [
       <span class="meta">10:01</span>
     </Msg>
     <div class="qr qr--row">
-      <a class="primary" href="#contacto" data-segment={seg.formValue} data-track="cta_click" data-loc="hero-nicho">{seg.cta}</a>
+      <a class="primary qr__full" href={SITE.signupUrl} data-track="signup_click" data-loc="hero-nicho">Crear cuenta</a>
+      <a href="#contacto" data-segment={seg.formValue} data-track="cta_click" data-loc="hero-nicho">{seg.cta}</a>
       <a href="#como-funciona">¿Cómo funciona?</a>
     </div>
     <Msg wide fwd="Reenviado" time="10:01">Así trabajamos 👇<Demo messages={seg.chat} who={who} /></Msg>
